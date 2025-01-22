@@ -1,0 +1,21 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" sizes="128x128" href="img/ncafavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" sizes="128x128" href="img/ncafavicon.ico/favicon.ico" type="image/x-icon">
+    {% tailwind_css %}
+    <title>RA PORTAL</title>
+</head>
+
+<body>
+    {% block content %}
+    
+    {% endblock content%}
+</body>
+
+</html>
