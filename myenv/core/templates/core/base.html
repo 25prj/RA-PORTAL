@@ -17,7 +17,53 @@
 
 <body>
     
-
+    <nav class="relative container mx-auto p-6">
+        <!--FLEX CONTAINER -->
+        <div class="flex items-center justify-between">
+    
+            <!-- LOGO -->
+            <div class="flex items-center pt-2">
+                <img src="{% static 'images/NCA.png'%}" alt="" />
+            </div>
+    
+            <!-- MENU ITEMS -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-darkGrayishBlue">Home</a>
+                <a href="#" class="hover:text-darkGrayishBlue">About</a>
+                <a href="https://nca.org.gh/" class="hover:text-darkGrayishBlue">Our Website</a>
+            </div>
+    
+            <!-- BUTTON -->
+            <div class="flex space-x-4">
+                <a href="#"
+                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline hover:bg-darkGrayishBlue">LOG
+                    IN</a>
+                <a href="#"
+                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline  hover:bg-darkGrayishBlue">SIGN
+                    UP</a>
+            </div>
+    
+            <!-- Hamburger Icon -->
+            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+            </div>
+    
+        <!-- Mobile Menu -->
+        <div class="md:hidden">
+            <div id="menu"
+                class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Our Website</a>
+                <a href="#">LOG IN</a>
+                <a href="#">SIGN UP</a>
+            </div>
+        </div>
+    
+    </nav>
     
 
     {% block content %}
@@ -41,7 +87,7 @@
 
         <!-- Logo -->
          <div>
-            <img src="img/ncalogo.png" class="h-40" alt=""/>
+            <img src="{% static 'images/ncalogo.png'%}" class="h-40" alt=""/>
          </div>
          <!-- Social links CONTAINER-->
           <div class="flex justify-center space-x-4">
