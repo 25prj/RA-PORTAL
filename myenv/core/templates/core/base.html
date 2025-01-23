@@ -1,26 +1,112 @@
 {% load static tailwind_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="icon" sizes="128x128" href="img/ncafavicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" sizes="128x128" href="img/ncafavicon.ico/favicon.ico" type="image/x-icon">
-    {% tailwind_css %}
-    <title>RA PORTAL</title>
-</head>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="icon" sizes="128x128" href="img/ncafavicon.ico" type="image/x-icon">
+        {% load static %}
+        <link rel="shortcut icon" sizes="128x128" href="img/ncafavicon.ico/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css'%}">
+        {% tailwind_css %}
+        <title>RA PORTAL</title>
+    </head>
 
 <body>
     
-    {% include "core/navbar.html" %}
 
-
+    
 
     {% block content %}
 
     {% endblock content%}
+
+  
+    <!-- Footer -->
+  <footer class="bg-sky-700">
+
+    <!-- Flex Container-->
+
+  <footer class="bg-sky-700 flex flex-col space-y-40">
+     <div class="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
+     <!-- Logo and Social Links Container -->  
+       <div class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-col md:space-y-0 md:items-start">
+        
+        <div class="mx-auto my-6 text-center text-white md:hidden">
+            Copyright &copy; 2025, All Rights Reserved
+        </div>
+
+        <!-- Logo -->
+         <div>
+            <img src="img/ncalogo.png" class="h-40" alt=""/>
+         </div>
+         <!-- Social links CONTAINER-->
+          <div class="flex justify-center space-x-4">
+            <!-- Link 1 -->
+             <a href="https://www.facebook.com/ncaghana"> 
+                <img src="{% static 'images/icon-facebook.svg'%}" alt="" class="h-8">
+             </a>
+
+            <!-- Link 2 -->
+            <a href="https://www.instagram.com/ncaghana/">
+                <img src="{% static 'images/icon-instagran.svg'%}" alt="" class="h-8">
+            </a>
+
+            <!-- Link 3 -->
+            <a href="https://x.com/NCAGhana">
+                <img src="{% static 'images/icon-twitter.svg'%}" alt="" class="h-8">
+            </a>
+
+            <!-- Link 4 -->
+            <a href="https://www.youtube.com/channel/UCTy4olIBTGNRbuE6gFCqcjQ">
+                <img src="{% static 'images/icon-youtube.svg'%}" alt="" class="h-8">
+            </a>
+
+            <!-- Link 5 -->
+            <a href="https://www.linkedin.com/company/national-communications-authority/">
+                <img src="{% static 'images/icon-linkedin.svg'%}" alt="" class="h-10">
+            </a>
+
+            <!-- Link 6 -->
+            <a href="https://api.whatsapp.com/send/?phone=233551518888&text&type=phone_number&app_absent=0">
+                <img src="{% static 'images/icon-whatsapp.svg'%}" alt="" class="h-10">
+            </a>
+          </div>
+       </div>
+<!-- List Container -->
+<div class="flex justify-around space-x-32">
+    <div class="flex flex-col space-y-3 text-white">
+        <a href="" class="hover:text-brightRed">Home</a>
+        <a href="" class="hover:text-brightRed">Contact Us</a>
+        <a href="" class="hover:text-brightRed">Make a complaint</a>
+    </div>
+</div>
+
+<!-- Input Container -->
+ <div class="flex flex-col justify-between">
+    <form action="">
+        <div class="flex space-x-3">
+            <input type="text" class="flex-1 px-4 rounded-full focus:outline-none"
+            placeholder="Update in your inbox"
+            />
+            
+            <button class="px-6 py-2 text-white rounded-full bg-orange-600 hover:bg-brightRedLight focus:outline-none">
+               Go 
+            </button>
+        </div>
+    </form>
+
+    <div class="hidden text-white md:block">
+        Copyright &copy; 2025, All Rights Reserved
+    </div>
+ </div>
+     </div>
+  </footer>
+
+    <script type="text/javascript" src="{% static 'static/js/script.js'%}"></script>
 </body>
 
 </html>

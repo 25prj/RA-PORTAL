@@ -1,5 +1,5 @@
 {% extends "core/base.html"%}
-
+{% load static %}
 
 {% block content%}
 
@@ -9,7 +9,7 @@
 
         <!-- LOGO -->
         <div class="flex items-center pt-2">
-            <img src="img/NCA.png" alt="" />
+            <img src="{% static 'images/NCA.png'%}" alt="" />
         </div>
 
         <!-- MENU ITEMS -->
