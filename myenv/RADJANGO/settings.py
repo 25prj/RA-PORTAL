@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'core', #django app
     'accounts',
     'admin_ui',
+    'user_ui',
 
     #tailwind apps
     'tailwind',

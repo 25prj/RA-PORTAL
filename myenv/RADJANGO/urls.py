@@ -22,5 +22,6 @@ urlpatterns = [
     path("",include("core.urls")),
     path("", include("accounts.urls")),
     path("", include("admin_ui.urls")),
+    path("",include("user_ui.urls")),
 
 ]
