@@ -1,0 +1,164 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% load static %}
+        {% tailwind_css %}
+        <link rel="icon" sizes="128x128" href="{% static 'images/ncafavicon.ico'}" type="image/x-icon">
+        <link rel="shortcut icon" sizes="128x128" href="{% static 'images/ncafavicon.ico'}" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css'%}">
+        <title>RA PORTAL</title>
+    </head>
+
+<body>
+    
+    <nav class="relative container mx-auto p-6">
+        <!--FLEX CONTAINER -->
+        <div class="flex items-center justify-between">
+    
+            <!-- LOGO -->
+            <div class="flex items-center pt-2">
+                <img src="{% static 'images/NCA.png'%}" alt="" />
+            </div>
+    
+            <!-- MENU ITEMS -->
+            <div class="hidden md:flex space-x-6">
+                <a href="/" class="hover:text-darkGrayishBlue">Home</a>
+                <a href="{% url 'core:about'%}"" class="hover:text-darkGrayishBlue">About</a>
+                <a href="{% url 'core:contact'%}" class="hover:text-brightRed">Contact Us</a>
+                <a href="https://nca.org.gh/" class="hover:text-darkGrayishBlue">Our Website</a>
+            </div>
+            
+            <!--user authentication-->
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'accounts:logout'%}"
+                class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline hover:bg-darkGrayishBlue">LOGOUT
+            </a>
+            
+
+            {% else %}
+
+            <!-- BUTTON -->
+            <div class="flex space-x-4">
+                <a href="{% url 'accounts:login'%}"
+                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline hover:bg-darkGrayishBlue">LOG
+                    IN</a>
+                <a href="{% url 'accounts:signup'%}"
+                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline  hover:bg-darkGrayishBlue">SIGN
+                    UP</a>
+                </div>
+    
+            <!-- Hamburger Icon -->
+            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden">
+            <div id="menu"
+            class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Our Website</a>
+            <a href="#">LOG IN</a>
+            <a href="#">SIGN UP</a>
+        </div>
+    </div>
+    
+        {% endif %}
+    </nav>
+    
+
+    {% block content %}
+
+    {% endblock content%}
+
+  
+    <!-- Footer -->
+  <footer class="bg-sky-700">
+
+    <!-- Flex Container-->
+
+  <footer class="bg-sky-700 flex flex-col space-y-40">
+     <div class="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
+     <!-- Logo and Social Links Container -->  
+       <div class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-col md:space-y-0 md:items-start">
+        
+        <div class="mx-auto my-6 text-center text-white md:hidden">
+            Copyright &copy; 2025, All Rights Reserved
+        </div>
+
+        <!-- Logo -->
+         <div>
+            <img src="{% static 'images/ncalogo.png'%}" class="h-40" alt=""/>
+         </div>
+         <!-- Social links CONTAINER-->
+          <div class="flex justify-center space-x-4">
+            <!-- Link 1 -->
+             <a href="https://www.facebook.com/ncaghana"> 
+                <img src="{% static 'images/icon-facebook.svg'%}" alt="" class="h-8">
+             </a>
+
+            <!-- Link 2 -->
+            <a href="https://www.instagram.com/ncaghana/">
+                <img src="{% static 'images/icon-instagran.svg'%}" alt="" class="h-8">
+            </a>
+
+            <!-- Link 3 -->
+            <a href="https://x.com/NCAGhana">
+                <img src="{% static 'images/icon-twitter.svg'%}" alt="" class="h-8">
+            </a>
+
+            <!-- Link 4 -->
+            <a href="https://www.youtube.com/channel/UCTy4olIBTGNRbuE6gFCqcjQ">
+                <img src="{% static 'images/icon-youtube.svg'%}" alt="" class="h-8">
+            </a>
+
+            <!-- Link 5 -->
+            <a href="https://www.linkedin.com/company/national-communications-authority/">
+                <img src="{% static 'images/icon-linkedin.svg'%}" alt="" class="h-10">
+            </a>
+
+            <!-- Link 6 -->
+            <a href="https://api.whatsapp.com/send/?phone=233551518888&text&type=phone_number&app_absent=0">
+                <img src="{% static 'images/icon-whatsapp.svg'%}" alt="" class="h-10">
+            </a>
+          </div>
+       </div>
+
+<!-- Input Container -->
+ <div class="flex flex-col justify-between">
+    <form action="">
+        <div class="flex space-x-3">
+            <input type="text" class="flex-1 px-4 rounded-full focus:outline-none"
+            placeholder="Enter E-mail to subcribe to our newsletter"
+            />
+            
+            <button class="px-6 py-2 text-white rounded-full bg-orange-600 hover:bg-brightRedLight focus:outline-none">
+               Submit
+            </button>
+        </div>
+    </form>
+
+    <div class="hidden text-white md:block">
+        Copyright &copy; 2025 National Communications Authority (NCA), Ghana All Rights Reserved
+    </div>
+ </div>
+     </div>
+  </footer>
+
+
+
+
+    <script type="text/javascript" src="{% static 'static/js/script.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Type Approval & Dealership License - NCA Ghana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100"> 
+
+    <header class="bg-sky-700 text-white py-12">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold uppercase">Contact Us</h1>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+
+            <!-- Contact Form -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your Name" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your Email" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Your Message" required></textarea>
+                    </div>
+                <button type="submit"
+                    class="w-full bg-sky-700 font-bold text-white py-2 px-4 rounded-lg">Send
+                    Message</button>
+                </form>
+            </div>
+
+            <!-- Company Information -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold mb-6">Our Information</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Address</h3>
+                        <p class="text-gray-600"> NCA Tower, KIA, 6 Airport By-pass Rd, <br>Accra</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Phone</h3>
+                        <p class="text-gray-600">030 277 1701</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Email</h3>
+                        <p class="text-gray-600"> info@nca.org.gh </p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Business Hours</h3>
+                        <p class="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Location</h3>
+                        <p class="text-gray-600">Google Maps: NCA Towers</p>
+                    </div>
+            </div>
+
+                </div>
+            </div>
+        </div>   
+
+    </main>
+
+
+
+</body>
+
+</html>
+
+{% endblock %}
