@@ -31,3 +31,7 @@ class TypeApproval(models.Model):
     emc = models.TextField(max_length=255)
     radio = models.TextField(max_length=255)
     health_and_safety = models.TextField(max_length=255)
+
+
+    def __str__(self):
+        return f"{self.company_name}"
