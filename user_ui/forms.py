@@ -7,7 +7,6 @@ class TypeApprovalForm(forms.ModelForm):
         fields = "__all__"
 
 
-    company_name = forms.CharField(max_length=)
     
 
 
