@@ -28,18 +28,17 @@
     <!-- Form Container -->
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
         <h1 class="text-2xl font-bold mb-6 text-center">Type Approval Application Form</h1>
-        <form class="space-y-6">
+        <form method="POST" class="space-y-6">
+            {% csrf_token %}
             <!-- Company Details -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="companyName" class="block text-sm font-medium text-gray-700">Company Name</label>
-                    <input type="text" id="companyName" name="companyName"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.company_name}}
                 </div>
                 <div>
                     <label for="contactPerson" class="block text-sm font-medium text-gray-700">Contact Person</label>
-                    <input type="text" id="contactPerson" name="contactPerson"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.contact_person}}
                 </div>
             </div>
 
@@ -47,23 +46,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="postalAddress" class="block text-sm font-medium text-gray-700">Postal Address</label>
-                    <input type="text" id="postalAddress" name="postalAddress"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.postal_address}} 
                 </div>
+                <!--phoneNumber1-->
                 <div>
                     <label for="phoneNumber1" class="block text-sm font-medium text-gray-700">Phone Number 1</label>
-                    <input type="tel" id="phoneNumber1" name="phoneNumber1"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.phone_no}}
                 </div>
                 <div>
                     <label for="phoneNumber2" class="block text-sm font-medium text-gray-700">Phone Number 2</label>
-                    <input type="tel" id="phoneNumber2" name="phoneNumber2"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.phone_no2}}
                 </div>
                 <div>
                     <label for="faxNumber" class="block text-sm font-medium text-gray-700">Fax Number</label>
-                    <input type="tel" id="faxNumber" name="faxNumber"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.fax_no}}
                 </div>
             </div>
 
@@ -71,13 +67,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.email}}
                 </div>
+                <!--alt email-->
                 <div>
                     <label for="altEmail" class="block text-sm font-medium text-gray-700">Alternate Email</label>
-                    <input type="email" id="altEmail" name="altEmail"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.alt_email}}
                 </div>
             </div>
 
@@ -85,34 +80,34 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="productType" class="block text-sm font-medium text-gray-700">Product Type</label>
-                    <input type="text" id="productType" name="productType"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.product_type}}
                 </div>
+                <!--branc name-->
                 <div>
                     <label for="brandName" class="block text-sm font-medium text-gray-700">Brand Name</label>
-                    <input type="text" id="brandName" name="brandName"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.brand_name}}
                 </div>
+                <!--modelNumber-->
                 <div>
                     <label for="modelNumber" class="block text-sm font-medium text-gray-700">Model Number</label>
-                    <input type="text" id="modelNumber" name="modelNumber"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.model_no}}
                 </div>
+                <!--productNumber-->
                 <div>
                     <label for="productNumber" class="block text-sm font-medium text-gray-700">Product Number</label>
-                    <input type="text" id="productNumber" name="productNumber"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.product_no}}
                 </div>
                 <div>
+                    <!--productName-->
                     <label for="productName" class="block text-sm font-medium text-gray-700">Product Name</label>
-                    <input type="text" id="productName" name="productName"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.product_name}}
                 </div>
                 <div>
+                    <!--softwareVersion-->
                     <label for="softwareVersion" class="block text-sm font-medium text-gray-700">Software
                         Version</label>
-                    <input type="text" id="softwareVersion" name="softwareVersion"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    
+                    {{form.software_version}}
                 </div>
             </div>
 
@@ -120,19 +115,18 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="antennaType" class="block text-sm font-medium text-gray-700">Antenna Type</label>
-                    <input type="text" id="antennaType" name="antennaType"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.antenna_type}}
                 </div>
+                <!--antennaGain-->
                 <div>
                     <label for="antennaGain" class="block text-sm font-medium text-gray-700">Antenna Gain</label>
-                    <input type="text" id="antennaGain" name="antennaGain"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.antenna_gain}}
                 </div>
+                <!--technicalVariants-->
                 <div>
                     <label for="technicalVariants" class="block text-sm font-medium text-gray-700">Technical
                         Variants</label>
-                    <input type="text" id="technicalVariants" name="technicalVariants"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.technical_variants}}
                 </div>
             </div>
 
@@ -140,13 +134,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="issueBody" class="block text-sm font-medium text-gray-700">Issue Body</label>
-                    <textarea id="issueBody" name="issueBody" rows="3"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    {{form.issue_body}}
                 </div>
                 <div>
                     <label for="issueDate" class="block text-sm font-medium text-gray-700">Issue Date</label>
-                    <input type="date" id="issueDate" name="issueDate"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.issue_date}}
                 </div>
             </div>
 
@@ -154,23 +146,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="validity" class="block text-sm font-medium text-gray-700">Validity</label>
-                    <input type="text" id="validity" name="validity"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.validity}}
                 </div>
                 <div>
                     <label for="emc" class="block text-sm font-medium text-gray-700">EMC</label>
-                    <input type="text" id="emc" name="emc"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.emc}}
                 </div>
                 <div>
                     <label for="radio" class="block text-sm font-medium text-gray-700">Radio</label>
-                    <input type="text" id="radio" name="radio"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.radio}}
                 </div>
                 <div>
                     <label for="healthSafety" class="block text-sm font-medium text-gray-700">Health and Safety</label>
-                    <input type="text" id="healthSafety" name="healthSafety"
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    {{form.health_and_safety}}
                 </div>
             </div>
 
