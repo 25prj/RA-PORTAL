@@ -14,10 +14,14 @@ def type_approval_view(request):
             type_approval_instance.fax_no = request.POST.get('fax_no', 'N/A')
             type_approval_instance.save()
 
-            return redirect("/")
+            return redirect("user_ui:success-page")
         else:
             print('form is invalid', form.errors)
     else:
         form = TypeApprovalForm()
 
     return render(request,'user_ui/type_approval.html', {'form':form})
+
+
+def success_page(request):
+    return render(request,'user_ui/success.html')
