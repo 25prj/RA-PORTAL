@@ -61,6 +61,9 @@ def signup(request):
     return render(request, 'accounts/signup.html',{'form': SignupForm()})
 
 
+def warning_page(request):
+    return render(request, 'accounts/warning.html')
+
 def logout_user(request):
     logout(request)
 
