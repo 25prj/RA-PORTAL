@@ -1,0 +1,28 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="flex p-6 items-center justify-center h-100">
+    <div class="w-1/2  p-6">
+        <div class="grid grid-cols-2 gap-4">
+            <div class="flex justify-content items-center h-auto">
+                <h1 class="text-5xl font-light text-gray-700 text-red-400 italic text-center w-auto ">
+                    you are not logged in, <br> Log in to view this page.
+                </h1>
+                
+            </div>
+            
+            
+            <div>
+                <img src="{% static 'images/security.png'%}" alt="" >
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}
+
+
+
