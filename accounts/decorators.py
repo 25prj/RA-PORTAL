@@ -26,7 +26,7 @@ def admin_only(admin_func):
 
 def users_authentication(users_func):
     def wrapper(request, *args, **kwargs):
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and not request.user.is_superuser:
             return users_func(request, *args, **kwargs)
         else:
             #return HttpResponse("You are not logged in, Log in to view this page.")

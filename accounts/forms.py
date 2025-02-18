@@ -10,7 +10,7 @@ class LoginForm(AuthenticationForm):
 
     username = forms.CharField(widget=forms.TextInput(attrs={
         "placeholder": "Username",
-        'class':'py-2 px-2 w-full focus:outline-none'
+        'class':'py-2 px-2 w-full focus:outline-none focus'
     }))
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={
@@ -23,11 +23,28 @@ class LoginForm(AuthenticationForm):
 class SignupForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name','username','company', 'email', 'password1', 'password2']
+
+
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
+        "placeholder": "First Name",
+        'class':'py-2 px-2 w-full focus:outline-none'
+    }))
+    
+    last_name = forms.CharField(widget=forms.TextInput(attrs={
+        "placeholder": "Last Name",
+        'class':'py-2 px-2 w-full focus:outline-none'
+    }))
+
 
 
     username = forms.CharField(widget=forms.TextInput(attrs={
         "placeholder": "Username",
+        'class':'py-2 px-2 w-full focus:outline-none'
+    }))
+    
+    company = forms.CharField(widget=forms.TextInput(attrs={
+        "placeholder": "Company",
         'class':'py-2 px-2 w-full focus:outline-none'
     }))
 
