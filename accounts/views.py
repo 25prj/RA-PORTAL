@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .decorators import unauthenticated_user, admin_only
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -32,7 +33,10 @@ def login_user(request):
 @unauthenticated_user
 def signup(request):
     if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         username = request.POST.get('username')
+        company= request.POST.get('company')
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
@@ -43,12 +47,18 @@ def signup(request):
             messages.error(request, f'This email has an account already exists.')
             
         elif len(password1) < 8:
-            messages.error(request, 'password is less than 8 characters.')
+            messages.error(request, 'Password is less than 8 characters.')
         elif password1 != password2:
-            messages.error(request, 'passwords do not match')
+            messages.error(request, 'Passwords do not match.')
         else:
             password = request.POST.get('password2')
-            user = User.objects.create_user(username=username, email=email, password=password)
+            user = User.objects.create_user(
+                username=username,
+                email=email,
+                first_name=first_name,
+                last_name=last_name,
+                password=password1,
+            )
             
             if 'sakara' in email:
                 user.is_superuser = True
