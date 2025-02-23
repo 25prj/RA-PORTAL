@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .decorators import unauthenticated_user, admin_only
 from django.contrib.auth.models import User
+from .models import Customer
 
 # Create your views here.
 
