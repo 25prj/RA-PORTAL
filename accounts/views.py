@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import Group
 from .forms import LoginForm,SignupForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -16,12 +17,13 @@ def login_user(request):
         password = request.POST.get('password')
 
         user = authenticate(request,username=username, password=password)
+        customer = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
 
             if user.is_superuser:
-                return redirect('admin_ui')
+                return redirect('admin')
             else:
                 return redirect('/')
         else:
@@ -61,11 +63,18 @@ def signup(request):
                 password=password1,
             )
             
+            group = Group.objects.get(name='customer')
+            #print(f'group name: {group.name}')
+            group2 = Group.objects.get(name='admin')
+            
             if 'sakara' in email:
                 user.is_superuser = True
+                user.groups.add(group2)
                 user.save()
             else:
+                user.groups.add(group)
                 user.save()
+               
 
             return redirect('accounts:login')
     

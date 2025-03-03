@@ -19,6 +19,7 @@ class LoginForm(AuthenticationForm):
         'class':'py-2 px-2 w-full focus:outline-none'
     }))
 
+
     
 
 class SignupForm(UserCreationForm):

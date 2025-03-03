@@ -12,317 +12,148 @@
         <link rel="icon" sizes="128x128" href="{% static 'images/ncafavicon.ico'}" type="image/x-icon">
         <link rel="shortcut icon" sizes="128x128" href="{% static 'images/ncafavicon.ico'}" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css'%}">
+        <!--flowbite cdn-->
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+        <!--poppins font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <title>RA PORTAL</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
 
-<body class='px-6'>
+<body style='font-family:Poppins'>
     
-    <nav class="relative container mx-auto p-6">
-        <!--FLEX CONTAINER -->
-        <div class="flex items-center justify-between">
-    
-            <!-- LOGO -->
-            <div class="flex items-center pt-2">
-                <img src="{% static 'images/NCA.png'%}" alt="" />
-            </div>
-    
-            <!-- MENU ITEMS -->
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="/" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline">Home</a>
-                <a href="#" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline">Dashboard</a>
-                <a href="{% url 'core:contact'%}" class="hover:text-brightRed hover:text-blue-500 hover:underline">Type Approval Request</a>
-                <a href="https://nca.org.gh/" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline">Our Website</a>
-                <!--my approval dropdown menu-->
-               
-               
-                <div class="flex justify-center">
-                    <div
-                        x-data="{
-                            open: false,
-                            toggle() {
-                                if (this.open) {
-                                    return this.close()
-                                }
-
-                                this.$refs.button.focus()
-
-                                this.open = true
-                            },
-                            close(focusAfter) {
-                                if (! this.open) return
-
-                                this.open = false
-
-                                focusAfter && focusAfter.focus()
-                            }
-                        }"
-                        x-on:keydown.escape.prevent.stop="close($refs.button)"
-                        x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-                        x-id="['dropdown-button']"
-                        class="relative"
-                    >
-                        <!-- Button -->
-                        <button
-                            x-ref="button"
-                            x-on:click="toggle()"
-                            :aria-expanded="open"
-                            :aria-controls="$id('dropdown-button')"
-                            type="button"
-                            class="relative flex items-center whitespace-nowrap justify-center gap-2 py-2 rounded-lg  bg-white hover:bg-gray-50 text-gray-800  hover:text-blue-500 hover:underline px-4"
-                        >
-                            <span class="font-normal">Dealership Request</span>
-
-                            <!-- Heroicon: micro chevron-down -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                                <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-
-                        <!-- Panel -->
-                        <div
-                            x-ref="panel"
-                            x-show="open"
-                            x-transition.origin.top.left
-                            x-on:click.outside="close($refs.button)"
-                            :id="$id('dropdown-button')"
-                            x-cloak
-                            class="absolute left-0 min-w-48 rounded-lg shadow-sm mt-2 z-10 origin-top-left bg-white p-1.5 outline-none border border-gray-200"
-                        >
-                            <a href="{% url 'user_ui:type-approval-list'%}" class="px-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-50 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
-                                Type Approvals
-                            </a>
-
-                            <a href="#edit" class="px-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-50 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
-                                Dealership License
-                            </a>
-
-                            
-                        </div>
-                    </div>
-                </div>
-                <!--dropdown end-->
-            </div>
-            
-            <!--user authentication-->
-            {% if request.user.is_authenticated %}
-            
-            
-            <div class="flex justify-center">
-                <div
-                    x-data="{
-                        open: false,
-                        toggle() {
-                            if (this.open) {
-                                return this.close()
-                            }
-
-                            this.$refs.button.focus()
-
-                            this.open = true
-                        },
-                        close(focusAfter) {
-                            if (! this.open) return
-
-                            this.open = false
-
-                            focusAfter && focusAfter.focus()
-                        }
-                    }"
-                    x-on:keydown.escape.prevent.stop="close($refs.button)"
-                    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-                    x-id="['dropdown-button']"
-                    class="relative"
-                >
-                    <!-- Button -->
-                    <button
-                        x-ref="button"
-                        x-on:click="toggle()"
-                        :aria-expanded="open"
-                        :aria-controls="$id('dropdown-button')"
-                        type="button"
-                        class="relative w-58 flex items-center whitespace-nowrap justify-center gap-2 py-2 rounded-lg shadow-sm bg-white hover:bg-gray-200 text-gray-800 border border-gray-200 hover:border-gray-200 px-4 "
-                    >
-                        <svg class='size-6 ml-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
-                        </svg>
-                      
-                      
-                        <span class="font-light text-lg">{{request.user}}</span>
-
-                        <!-- Heroicon: micro chevron-down -->
-                        <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-                            <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-
-                    <!-- Panel -->
-                    <div
-                        x-ref="panel"
-                        x-show="open"
-                        x-transition.origin.top.left
-                        x-on:click.outside="close($refs.button)"
-                        :id="$id('dropdown-button')"
-                        x-cloak
-                        class="absolute right-0 min-w-48 rounded-lg shadow-lg mt-2 z-10 origin-top-left bg-white p-1.5 outline-none border border-gray-200 overflow-x-hidden"
-                    >
-
-                        
-
-                        <a href="#new" class="px-2 gap-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-200 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                <path d="M15.75 8.25a.75.75 0 0 1 .75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 1 1-.992-1.124A2.243 2.243 0 0 0 15 9a.75.75 0 0 1 .75-.75Z" />
-                                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM4.575 15.6a8.25 8.25 0 0 0 9.348 4.425 1.966 1.966 0 0 0-1.84-1.275.983.983 0 0 1-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 0 1 2.328-.377L16.5 15h.628a2.25 2.25 0 0 1 1.983 1.186 8.25 8.25 0 0 0-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.575 15.6Z" clip-rule="evenodd" />
-                              </svg>
-                              
-                            <span>Public Profile</span>
-                        </a>
-
-                        <a href="#edit" class="px-2 gap-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-200 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                <path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd" />
-                              </svg>
-                              
-                            <span>Account Settings</span>
-                        </a>
-
-                        <a href="{% url 'accounts:logout'%}" class="px-2 gap-2  lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-red-50 hover:text-red-600 focus-visible:bg-red-50 focus-visible:text-red-600 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                <path fill-rule="evenodd" d="M7.5 3.75A1.5 1.5 0 0 0 6 5.25v13.5a1.5 1.5 0 0 0 1.5 1.5h6a1.5 1.5 0 0 0 1.5-1.5V15a.75.75 0 0 1 1.5 0v3.75a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3V5.25a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3V9A.75.75 0 0 1 15 9V5.25a1.5 1.5 0 0 0-1.5-1.5h-6Zm10.72 4.72a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 1 1-1.06-1.06l1.72-1.72H9a.75.75 0 0 1 0-1.5h10.94l-1.72-1.72a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                              </svg>
-                              
-                            <span>Logout</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--
-                <a href="{% url 'accounts:logout'%}"
-                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline hover:bg-darkGrayishBlue">LOGOUT
-                </a>
-            -->
-            
-            
-
-            {% else %}
-
-            <!-- BUTTON -->
-            <div class="flex space-x-4">
-                <a href="{% url 'accounts:login'%}"
-                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline hover:bg-darkGrayishBlue">LOG
-                    IN</a>
-                <a href="{% url 'accounts:signup'%}"
-                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline  hover:bg-darkGrayishBlue">SIGN
-                    UP</a>
-                </div>
-    
-            <!-- Hamburger Icon -->
-            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-                <span class="hamburger-top"></span>
-                <span class="hamburger-middle"></span>
-                <span class="hamburger-bottom"></span>
-            </button>
+<!--sidebar-->    
+<aside style='font-family:Poppins' class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-[calc(3.73rem)] border-r border-gray-300/40 bg-white hover:w-56 hover:shadow-2xl">
+<div class="flex h-full flex-col justify-between">
+    <div>
+        <div class='h-16 flex border-b border-gray-300/40 items-center'>
+            <a href="https://flowbite.com/" class="flex items-center ps-2.5 mb-5">
+                <img class='w-[52px] h-auto mt-4 rounded-full' src="{% static 'images/ncalogo.png'%}" alt="">
+                
+             </a>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="md:hidden">
-            <div id="menu"
-            class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Our Website</a>
-            <a href="#">LOG IN</a>
-            <a href="#">SIGN UP</a>
+        <div class='mt-6'>
+            <ul class='px-1 -ml-px space-y-6 font-medium tracking-wide'>
+                <li class='w-max space-y-4  group-hover:w-full'>
+                    <a href="{% url 'admin'%}" class='block py-3 w-[52px] rounded-full bg-sky-500 group-hover:w-full'>
+                        <div class='w-max flex items-center px-4 gap-4 hover:text-sky-500'>
+                            <svg class='size-7 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z" clip-rule="evenodd" />
+                              </svg>
+                              
+                            <span class='font-semibold text-gray-500 text-lg'>Dashboard</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class='w-max text-gray-500'>
+                    <a href="" >
+                        <div class='w-max flex items-center px-4 gap-4 hover:text-sky-400'>
+                            <svg class='size-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
+                                <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                              </svg>
+                              
+                            <span class='font-semibold text-lg'>Users</span>
+                        </div>    
+                    </a>
+                </li>
+                <li class='w-max text-gray-500'>
+                    <a href="">
+                        <div class='w-max flex items-center px-4 gap-4 hover:text-sky-400'>
+                            <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
+                              </svg>
+                              
+                              
+                            <span class='font-semibold text-lg'>Categories</span>
+                        </div>    
+                    </a>
+                </li>
+                <li class='w-max text-gray-500'>
+                    <a href="">
+                        <div class='w-max flex items-center px-4 gap-4 hover:text-sky-400'>
+                            <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
+                              </svg>
+                              
+                              
+                            <span class='font-semibold text-lg'>Categories</span>
+                        </div>    
+                    </a>
+                </li>
+                <li class='w-max text-gray-500'>
+                    <a href="{% url 'accounts:logout'%}">
+                        <div class='w-max flex items-center px-4 gap-4 hover:text-red-400'>
+                            <svg class='size-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path fill-rule="evenodd" d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z" clip-rule="evenodd" />
+                              </svg>
+                              
+                              
+                              
+                            <span class='font-semibold text-lg'>Sign Out</span>
+                        </div>    
+                    </a>
+                </li>
+
+            </ul>
         </div>
     </div>
-    
-        {% endif %}
-    </nav>
-    
 
-    {% block content %}
+    <div class='py-4 px-2 border-t border-gray-300/40'>
+        <a href="">
+            <div class='flex items-center gap-4'>
+                <img class='w-10 h-10 rounded-full' src="{% static 'images/avatar-ali.png'%}" alt="">
+                <div>
+                    <h6 class='text-gray-500'>{{request.user}}</h6>
+                    <span class='block -mt-0.5 text-xs'>Backend Develpoper</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+</aside>
 
-    {% endblock content%}
+<!--main content-->
+<main>
+    <div class="w-calc[(100%-3.73rem) ml-auto]">
+        <div class="2xl:container mx-auto space-y-6">
+            <div class="h-16 pt-4 flex justify-between items-center border-b w-full border-gray-200">
+                <div>
+
+                </div>
+                <a href="">
+
+                    <div class='rounded-3xl h-8 flex items-center'>
+    
+                        <h1 class="font-light text-xl italic">Good Morning, </h1>
+                        <span class='text-gray-500  font-semibold text-xl'>{{request.user}}</span>
+                    </div>
+                </a>
+            </div>
+            <div class="px-16 lg:px-12">
+
+                <div>
+                    
+                    {% block content %}
+                    
+                    {% endblock content %}
+
+
+    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
 
   
-    <!-- Footer -->
-  <footer class="bg-sky-700">
-
-    <!-- Flex Container-->
-
-  <footer class="bg-sky-700 flex flex-col space-y-40">
-     <div class="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
-     <!-- Logo and Social Links Container -->  
-       <div class="flex flex-col-reverse items-center justify-between space-y-12 md:flex-col md:space-y-0 md:items-start">
-        
-        <div class="mx-auto my-6 text-center text-white md:hidden">
-            Copyright &copy; 2025, All Rights Reserved
-        </div>
-
-        <!-- Logo -->
-         <div>
-            <img src="{% static 'images/ncalogo.png'%}" class="h-40" alt=""/>
-         </div>
-         <!-- Social links CONTAINER-->
-          <div class="flex justify-center space-x-4">
-            <!-- Link 1 -->
-             <a href="https://www.facebook.com/ncaghana"> 
-                <img src="{% static 'images/icon-facebook.svg'%}" alt="" class="h-8">
-             </a>
-
-            <!-- Link 2 -->
-            <a href="https://www.instagram.com/ncaghana/">
-                <img src="{% static 'images/icon-instagran.svg'%}" alt="" class="h-8">
-            </a>
-
-            <!-- Link 3 -->
-            <a href="https://x.com/NCAGhana">
-                <img src="{% static 'images/icon-twitter.svg'%}" alt="" class="h-8">
-            </a>
-
-            <!-- Link 4 -->
-            <a href="https://www.youtube.com/channel/UCTy4olIBTGNRbuE6gFCqcjQ">
-                <img src="{% static 'images/icon-youtube.svg'%}" alt="" class="h-8">
-            </a>
-
-            <!-- Link 5 -->
-            <a href="https://www.linkedin.com/company/national-communications-authority/">
-                <img src="{% static 'images/icon-linkedin.svg'%}" alt="" class="h-10">
-            </a>
-
-            <!-- Link 6 -->
-            <a href="https://api.whatsapp.com/send/?phone=233551518888&text&type=phone_number&app_absent=0">
-                <img src="{% static 'images/icon-whatsapp.svg'%}" alt="" class="h-10">
-            </a>
-          </div>
-       </div>
-
-<!-- Input Container -->
- <div class="flex flex-col justify-between">
-    <form action="">
-        <div class="flex space-x-3">
-            <input type="text" class="flex-1 px-4 rounded-full focus:outline-none"
-            placeholder="Enter E-mail to subcribe to our newsletter"
-            />
-            
-            <button class="px-6 py-2 text-white rounded-full bg-orange-600 hover:bg-brightRedLight focus:outline-none">
-               Submit
-            </button>
-        </div>
-    </form>
-
-    <div class="hidden text-white md:block">
-        Copyright &copy; 2025 National Communications Authority (NCA), Ghana All Rights Reserved
-    </div>
- </div>
-     </div>
-  </footer>
-
-
-
-
-    <script type="text/javascript" src="{% static 'static/js/script.js'%}"></script>
 </body>
 
 </html>
