@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .forms import TypeApprovalForm
 from accounts.decorators import users_authentication
 from django.utils import timezone
-from .models import TypeApproval
+#from .models import TypeApproval
+from accounts.models import TypeApproval
 # Create your views here.
 
 @users_authentication
@@ -29,7 +30,7 @@ def success_page(request):
 
 @users_authentication
 def type_approval_list(request):
-    type_approvals = TypeApproval.objects.all()
+    type_approvals = request.user.customer.typeapproval_set.all()
     #costumer = TypeApproval.objects.get(id=3)
     first_name = request.user.first_name
     last_name = request.user.last_name

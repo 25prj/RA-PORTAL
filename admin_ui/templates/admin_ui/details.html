@@ -1,0 +1,144 @@
+{% extends "admin_ui/admin_base.html" %}
+
+
+{% block content %}
+
+<div>
+    <h1 class='font-semibold text-gray-800 px-4 text-2xl'>Type Approvals Application</h1>
+</div>
+<div class='px-4 flex h-100 width-auto justify-center items-center mt-4 rounded-md bg-slate-200'>
+    
+    <div class="grid grid-cols-3 gap-3  w-2/3 p-6">
+        <div class='text-gray-600 font-semibold text-xl col-span-3'>Application Details</div>
+        <div>
+            <span class='text-lg font-semibold '>Customer</span>
+            <h1>{{app_details.customer}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Company Name</span>
+            <h1>{{app_details.company_name}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Contact Person</span>
+            <h1>{{app_details.contact_person}}</h1>
+        </div>
+
+
+
+        <div>
+            <span class='text-lg font-semibold'>Postal Address</span>
+            <h1 class=''>{{app_details.postal_address}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Phone</span>
+            <h1>{{app_details.phone_no}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Alt Phone</span>
+            <h1>{{app_details.phone_no2}}</h1>
+        </div>
+
+
+        <div>
+            <span class='text-lg font-semibold'>Fax Number</span>
+            <h1>{{app_details.fax_no}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Email</span>
+            <h1>{{app_details.email}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Alt Email</span>
+            <h1>{{app_details.alt_email}}</h1>
+        </div>
+
+        <div class='text-gray-600 font-semibold text-xl col-span-3 mt-4'>Technical Detail Of Equipment</div>
+
+        <div>
+            <span class='text-lg font-semibold'>Product Type</span>
+            <h1>{{app_details.product_type}}</h1>
+        </div>
+        
+        <div>
+            <span class='text-lg font-semibold'>Brand Name</span>
+            <h1>{{app_details.brand_name}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Model Number</span>
+            <h1>{{app_details.model_no}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Product Number</span>
+            <h1>{{app_details.product_no}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Product Name</span>
+            <h1>{{app_details.product_name}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Software Version</span>
+            <h1>{{app_details.software_version}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Antenna Type</span>
+            <h1>{{app_details.antenna_type}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Antenna Gain</span>
+            <h1>{{app_details.antenna_gain}}</h1>
+        </div>
+        
+        <div>
+            <span class='text-lg font-semibold'>Technical Variants</span>
+            <h1>{{app_details.technical_variants}}</h1>
+        </div>
+
+        <div class='text-gray-600 font-semibold text-xl col-span-3 mt-4'>Details of Certificate Of Complaince</div>
+        <div>
+            <span class='text-lg font-semibold'>Issue Body</span>
+            <h1>{{app_details.issue_body}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Issue Date</span>
+            <h1>{{app_details.issue_date}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Validity</span>
+            <h1>{{app_details.validity}}</h1>
+        </div>
+
+
+        <div class='text-gray-600 font-semibold text-xl col-span-3 mt-4'>Standards</div>
+        <div>
+            <span class='text-lg font-semibold'>EMC</span>
+            <h1>{{app_details.emc}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Radio</span>
+            <h1>{{app_details.radio}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Health And Safety</span>
+            <h1>{{app_details.health_and_safety}}</h1>
+        </div>
+        <div>
+            <span class='text-lg font-semibold'>Status</span>
+            <h1>{{app_details.status}}</h1>
+        </div>
+
+
+        <!--form-->
+        <form  method="post">
+            {% csrf_token %}
+
+            {{form.status}}
+
+            <button>save</button>
+        </form>
+        
+
+        
+    </div>
+</div>
+{% endblock content %}
+

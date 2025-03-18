@@ -4,6 +4,11 @@ from django.utils import timezone
 # Create your models here.
 
 class TypeApproval(models.Model):
+    STATUS = (
+        ('pending','pending'),
+        ('approved', 'approved'),
+        ('rejected', 'rejected'),
+    )
     company_name = models.CharField(max_length=100)
     contact_person = models.CharField(max_length=100)
     postal_address = models.TextField(max_length=255)
@@ -31,6 +36,8 @@ class TypeApproval(models.Model):
     emc = models.TextField(max_length=255)
     radio = models.TextField(max_length=255)
     health_and_safety = models.TextField(max_length=255)
+
+    status = models.CharField(max_length=50, choices=STATUS, default='pending')
 
 
     def __str__(self):

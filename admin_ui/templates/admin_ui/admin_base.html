@@ -9,8 +9,7 @@
         
         {% load static %}
         {% tailwind_css %}
-        <link rel="icon" sizes="128x128" href="{% static 'images/ncafavicon.ico'}" type="image/x-icon">
-        <link rel="shortcut icon" sizes="128x128" href="{% static 'images/ncafavicon.ico'}" type="image/x-icon">
+        <link rel="website icon" type='png' href="{% static 'images/ncalogo.png'%}">
         <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css'%}">
         <!--flowbite cdn-->
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
@@ -26,7 +25,7 @@
 <body style='font-family:Poppins'>
     
 <!--sidebar-->    
-<aside style='font-family:Poppins' class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-[calc(3.73rem)] border-r border-gray-300/40 bg-white hover:w-56 hover:shadow-2xl">
+<aside style='font-family:Poppins' class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-[calc(3.73rem)] border-r border-gray-300/40 bg-white hover:w-64 hover:shadow-2xl">
 <div class="flex h-full flex-col justify-between">
     <div>
         <div class='h-16 flex border-b border-gray-300/40 items-center'>
@@ -62,14 +61,14 @@
                     </a>
                 </li>
                 <li class='w-max text-gray-500'>
-                    <a href="">
+                    <a href="{% url 'type-approval'%}">
                         <div class='w-max flex items-center px-4 gap-4 hover:text-sky-400'>
                             <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
                               </svg>
                               
                               
-                            <span class='font-semibold text-lg'>Categories</span>
+                            <span class='font-semibold text-lg'>Type Approvals</span>
                         </div>    
                     </a>
                 </li>
@@ -81,7 +80,7 @@
                               </svg>
                               
                               
-                            <span class='font-semibold text-lg'>Categories</span>
+                            <span class='font-semibold text-lg'>Dealership License</span>
                         </div>    
                     </a>
                 </li>
@@ -134,7 +133,7 @@
                     </div>
                 </a>
             </div>
-            <div class="px-16 lg:px-12">
+            <div class="px-16 lg:px-1.5">
 
                 <div>
                     
@@ -153,6 +152,8 @@
 </main>
 
 
+<!--flowbite js-->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   
 </body>
 
