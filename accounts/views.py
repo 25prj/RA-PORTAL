@@ -17,7 +17,7 @@ def login_user(request):
         password = request.POST.get('password')
 
         user = authenticate(request,username=username, password=password)
-        customer = authenticate(request, username=username, password=password)
+        Customer.objects.get_or_create(user=user)
 
         if user is not None:
             login(request, user)
