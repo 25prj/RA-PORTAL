@@ -20,13 +20,9 @@
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     Customer
                                 </th>
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Postal Address
-                                </th>
                                 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Phone Number
-                                </th>
+                                
+                                
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     Product Type
                                 </th>
@@ -35,9 +31,7 @@
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     Status
                                 </th>
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Purchase
-                                </th>
+                                
 
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     Date
@@ -46,9 +40,7 @@
                                 <th scope="col" class="relative py-3.5 px-4">
                                     <span class="sr-only">Actions</span>
                                 </th>
-                                <th scope="col" class="relative py-3.5 px-4">
-                                    <span class="sr-only">Actions</span>
-                                </th>
+                                
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -71,10 +63,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-wrap">{{approval.postal_address}}
-                                    </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.phone_no}}
-                                    </td>
+                                    
+                                   
                                     <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.product_type}}
                                     </td>
 
@@ -117,8 +107,7 @@
 
                                         {% endif %}
                                     </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Monthly subscription
-                                    </td>
+                                    
                                     <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.issue_date}}
                                     </td>
                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
@@ -131,13 +120,7 @@
                                                        
                                         </div>
                                     </td>
-                                    <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                        <div class="flex items-center gap-x-6">
-                                            <button class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                                                Download
-                                            </button>
-                                        </div>
-                                    </td>
+                                    
                                 </tr>
                                 {% endfor %}
                             {% endif %}

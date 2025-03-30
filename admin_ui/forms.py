@@ -7,4 +7,6 @@ class TypeApprovalForm(forms.ModelForm):
         model = TypeApproval
         fields = ('status',)
 
-    status = forms.CharField(max_length=100, widget=forms.Select(choices=TypeApproval.STATUS))  
+    status = forms.CharField(max_length=100, widget=forms.Select(choices=TypeApproval.STATUS, attrs={
+        'class':'py-2 px-2 w-1/2 font-light  text-xl'
+    }))  
