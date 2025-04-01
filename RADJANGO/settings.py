@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'theme',
 
     'phonenumber_field',
+
+    'django_filters',
 ]
 
 TAILWIND_APP_NAME = 'theme'
