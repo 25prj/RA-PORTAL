@@ -3,6 +3,12 @@
 {% block content %}
 
 <h2 class='font-normal text-3xl text-gray-800 p-4 text-center mb-2'>Type Approval Applications</h2>
+<div class='mt-6'>
+    <form method="get" class='flex justify-between'>
+        {{myFilter.form}}
+        <button type='submit' class='py-2 px-6 rounded-md bg-sky-400 hover:bg-sky-600'>search</button>
+    </form>
+</div>
 <section class="container px-4 mx-auto mb-6">
     <div class="flex flex-col">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
