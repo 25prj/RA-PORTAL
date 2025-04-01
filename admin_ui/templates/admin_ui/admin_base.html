@@ -17,15 +17,21 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- Gidole font   -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fira+Code:wght@300..700&family=Gidole&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
         <title>RA PORTAL</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
 
-<body style='font-family:Poppins'>
+<body style='font-family:Gidole'>
     
 <!--sidebar-->    
-<aside style='font-family:Poppins' class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-[calc(3.73rem)] border-r border-gray-300/40 bg-white hover:w-64 hover:shadow-2xl">
+<aside style='font-family:Gidole' class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-[calc(3.73rem)] border-r border-gray-300/40 bg-white hover:w-64 hover:shadow-2xl">
 <div class="flex h-full flex-col justify-between">
     <div>
         <div class='h-16 flex border-b border-gray-300/40 items-center'>
@@ -50,7 +56,7 @@
 
                 <li class='w-max text-gray-500'>
                     <a href="" >
-                        <div class='w-max flex items-center px-4 gap-4 hover:text-sky-400'>
+                        <div class='w-max flex items-center px-4 gap-4  border-l-white py-1.5 border-l-[5px] hover:border-l-blue-400  '>
                             <svg class='size-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
                                 <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
@@ -60,9 +66,9 @@
                         </div>    
                     </a>
                 </li>
-                <li class='w-max text-gray-500'>
+                <li class='w-max text-gray-500 flex'>
                     <a href="{% url 'type-approval'%}">
-                        <div class='w-max flex items-center px-4 gap-4 hover:text-sky-400'>
+                        <div class='w-max flex items-center px-4 gap-4 border-l-white py-1.5 border-l-[5px] hover:border-l-blue-400'>
                             <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
                               </svg>
@@ -71,10 +77,11 @@
                             <span class='font-semibold text-lg'>Type Approvals</span>
                         </div>    
                     </a>
+                    
                 </li>
                 <li class='w-max text-gray-500'>
                     <a href="">
-                        <div class='w-max flex items-center px-4 gap-4 hover:text-sky-400'>
+                        <div class='w-max flex items-center px-4 gap-4 border-l-white py-1.5 border-l-[5px] hover:border-l-blue-400'>
                             <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
                               </svg>
@@ -86,7 +93,7 @@
                 </li>
                 <li class='w-max text-gray-500'>
                     <a href="{% url 'accounts:logout'%}">
-                        <div class='w-max flex items-center px-4 gap-4 hover:text-red-400'>
+                        <div class='w-max flex items-center px-4 gap-4 border-l-white py-1.5 border-l-[5px] hover:border-l-rose-400 '>
                             <svg class='size-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path fill-rule="evenodd" d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z" clip-rule="evenodd" />
                               </svg>
@@ -128,7 +135,7 @@
 
                     <div class='rounded-3xl h-8 flex items-center'>
     
-                        <h1 class="font-light text-xl italic">Good Morning, </h1>
+                        <h1 class="font-light text-xl italic mr-2">hello, </h1>
                         <span class='text-gray-500  font-semibold text-xl'>{{request.user}}</span>
                     </div>
                 </a>

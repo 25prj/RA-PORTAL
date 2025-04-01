@@ -5,6 +5,7 @@ from user_ui.models import TypeApproval
 
 from accounts.models import Customer,TypeApproval
 from .forms import TypeApprovalForm
+from accounts.filter import typeApprovalFilter
 
 @admin_only
 def admin_ui(request):
@@ -40,9 +41,14 @@ def dashboard(request):
 def type_approval(request):
     type_approval_list = TypeApproval.objects.all()
     #customers = Customer.objects.all()
+
+    #filter or search for typeapprovals
+    myFilter = typeApprovalFilter(request.GET, queryset=type_approval_list)
+    type_approval_list = myFilter.qs 
     context = {
         'type_approval_list':type_approval_list,
         #'customers':customers,
+        'myFilter':myFilter,
     }
     return render(request, 'admin_ui/type_approval.html',context)
 
