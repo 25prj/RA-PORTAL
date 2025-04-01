@@ -13,12 +13,17 @@
         <link rel="website icon" type='png' href="{% static 'images/ncalogo.png'%}">
         <link rel="stylesheet" type="text/css" href="{% static 'static/css/main.css'%}">
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+        <!--Gidole font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fira+Code:wght@300..700&family=Gidole&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
         <title>RA PORTAL</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
 
-<body>
+<body style='font-family:Gidole'>
     
     <nav class="relative container mx-auto p-6">
         <!--FLEX CONTAINER -->
@@ -31,10 +36,10 @@
     
             <!-- MENU ITEMS -->
             <div class="hidden md:flex items-center space-x-6">
-                <a href="/" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline">Home</a>
-                <a href="{% url 'core:about'%}" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline">About</a>
-                <a href="{% url 'core:contact'%}" class="hover:text-brightRed hover:text-blue-500 hover:underline">Contact Us</a>
-                <a href="https://nca.org.gh/" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline">Our Website</a>
+                <a href="/" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline hover:-translate-y-0.5 transform">Home</a>
+                <a href="{% url 'core:about'%}" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline  hover:-translate-y-0.5 transform">About</a>
+                <a href="{% url 'core:contact'%}" class="hover:text-brightRed hover:text-blue-500 hover:underline  hover:-translate-y-0.5 transform">Contact Us</a>
+                <a href="https://nca.org.gh/" class="hover:text-darkGrayishBlue hover:text-blue-500 hover:underline  hover:-translate-y-0.5 transforms">Our Website</a>
                 <!--my approval dropdown menu-->
                
                
@@ -211,10 +216,10 @@
             <!-- BUTTON -->
             <div class="flex space-x-4">
                 <a href="{% url 'accounts:login'%}"
-                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline hover:bg-darkGrayishBlue">LOG
+                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline hover:bg-darkGrayishBlue hover:bg-orange-500 hover:ring-2 hover:ring-orange-500 hover:ring-offset-2 hover:-translate-y-0.5 transform ">LOG
                     IN</a>
                 <a href="{% url 'accounts:signup'%}"
-                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline  hover:bg-darkGrayishBlue">SIGN
+                    class="hidden md:block p-3 px-6 pt-2 text-white bg-orange-600 rounded-full baseline  hover:bg-darkGrayishBlue hover:bg-orange-500 hover:ring-2 hover:ring-orange-500 hover:ring-offset-2 hover:-translate-y-0.5 transform">SIGN
                     UP</a>
                 </div>
     

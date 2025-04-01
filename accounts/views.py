@@ -29,9 +29,9 @@ def login_user(request):
         else:
             messages.error(request, 'Invalid username or password')
             
-            return render(request,'accounts/signin.html',{'form':LoginForm()})
+            return render(request,'accounts/signin.html',{'loginform':LoginForm()})
         
-    return render(request, 'accounts/signin.html', {'form': LoginForm()})
+    return render(request, 'accounts/signin.html', {'loginform': LoginForm()})
 
 @unauthenticated_user
 def signup(request):
