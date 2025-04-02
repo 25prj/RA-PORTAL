@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from accounts.decorators import admin_only,allowed_users
 from user_ui.models import TypeApproval
 # Create your views here.
 
 from accounts.models import Customer,TypeApproval
 from .forms import TypeApprovalForm
+from accounts.filter import typeApprovalFilter
 
 @admin_only
 def admin_ui(request):
@@ -40,22 +41,31 @@ def dashboard(request):
 def type_approval(request):
     type_approval_list = TypeApproval.objects.all()
     #customers = Customer.objects.all()
+
+    #filter or search for typeapprovals
+    myFilter = typeApprovalFilter(request.GET, queryset=type_approval_list)
+    type_approval_list = myFilter.qs 
     context = {
         'type_approval_list':type_approval_list,
         #'customers':customers,
+        'myFilter':myFilter,
     }
     return render(request, 'admin_ui/type_approval.html',context)
 
 
+# select or able to approve or decline a type approval
 @admin_only
 def details(request,view_id):
+    app_details= TypeApproval.objects.get(id=view_id)
     if request.method == 'POST':
-        form = TypeApprovalForm(request.POST,instance=TypeApproval.objects.get(id=view_id))
+        form = TypeApprovalForm(request.POST or None,instance=app_details) 
         if form.is_valid():
             form.save()
+            print('save')
+            return redirect('type-approval')
     else:
-        form = TypeApprovalForm()
-    app_details= TypeApproval.objects.get(id=view_id)
+        form = TypeApprovalForm(instance=app_details)
+        print('not save')
     context = {
         'app_details':app_details,
         'form':form

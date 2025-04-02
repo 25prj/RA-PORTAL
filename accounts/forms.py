@@ -11,7 +11,7 @@ class LoginForm(AuthenticationForm):
 
     username = forms.CharField(widget=forms.TextInput(attrs={
         "placeholder": "Username",
-        'class':'py-2 px-2 w-full focus:outline-none focus'
+        'class':'py-2 px-2 w-full focus:outline-none'
     }))
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={

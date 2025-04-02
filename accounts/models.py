@@ -19,10 +19,10 @@ class Customer(models.Model):
     
 class TypeApproval(models.Model):
     STATUS = (
-        ('submitted', 'Submitted'),
-        ('under review', 'Under Review'),
+        
+        ('under review', 'under review'),
         ('approved', 'Approved'),
-        ('rejected', 'rejected')
+        ('rejected', 'Rejected')
     )
 
     customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
