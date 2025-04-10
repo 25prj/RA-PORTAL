@@ -2,9 +2,629 @@
 
 {% block content %}
 
-<h1>dealership form page</h1>
+ <body class="bg-gray-100">
+    <!-- Full-Width Header -->
+    <header class="bg-sky-700  text-white py-12 w-full">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold uppercase">DEALERSHIP LICENCE</h1>
+            <p class="mt-4 text-lg">Fill the form below to apply for your dealership licence certificate</p>
+        </div>
+    </header>
 
-{% comment "enter your codes in block content" %} make the form in 3-cols using the grid {% endcomment %}
+    <div class="my-8"></div>
+
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-6 text-center">Dealership Licence Application Form</h1>
+
+    <form method="POST" class="space-y-6">
+
+        <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 1A: SERVICE OPTIONS </h1> <p> Please tick the service for which licence is sought.</p> 
+            <label class="flex items-center relative group cursor-pointer">
+                <input type="radio" name="service_option" class="mr-2">
+                <span class="text-gray-800 font-bold">CLASS A</span>
+            </label>
+
+                <p class="text-sky">– Importation and/or sales/distribution, installation, repairs and maintenance of fixed line phones, mobile and fixed cellular phones, fax machines, low power cordless phones, tablets internet modems, computers, TVRO (free on Air), any other terminal equipment to be connected to the public network, PABX with capacity of up to 50 lines and all necessary accessories.</p>
+
+                <label class="flex items-center relative group cursor-pointer">
+                    <input type="radio" name="service_option" class="mr-2">
+                    <span class="text-gray-800 font-bold">CLASS B</span>
+                </label>
+                
+                <p class="text-sky">– Importation and/or sales/distribution, installation, repairs and maintenance of Class A equipment, HF/VHF/UHF Radio equipment, line extenders, minor network installation including switching equipment of up to 300-line capacity, ISM band equipment and its accessories.</p>
+
+                    <label class="flex items-center relative group cursor-pointer">
+                        <input type="radio" name="service_option" class="mr-2">
+                        <span class="text-gray-800 font-bold">CLASS C</span>
+                    </label>
+                    
+                    <p class="text-sky"> – Importation and / or sales/distribution, installation, repairs and maintenance of Class A & B equipment, major network installation including switching equipment of between 300 and 1000 lines capacity, licensed band radio equipment, VSATs and all necessary accessories</p>
+
+                        <label class="flex items-center relative group cursor-pointer">
+                            <input type="radio" name="service_option" class="mr-2">
+                            <span class="text-gray-800 font-bold">CLASS D</span>
+                        </label>
+                        
+                        <p class="text-sky">– Vendors and sub-contractors providing services in the telecommunications industry including network benchmarking, revenue assurance, QoS etc.</p>
+            
+        <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 1B: Please list only the equipment and/or services you intend to provide:</h1>
+        <p class="text-gray-800 font-bold">NOTE: Please ensure that you deal in only type approved Electronic Communications equipment and accessories</p>
+
+        <div class="bg-white p-6 rounded-lg shadow-md w-150 text-center">
+            <h2 class="text-lg font-semibold mb-4">List of Equipment/Services</h2>
+            <textarea id="itemList" class="w-full h-40 p-2O px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter equipment and/or services you intend to provide here... "></textarea>
+        </div>
+            
+                <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 2: CORPORATE PROFILE</h1>
+                <label class="block mb-2">2.1 Registered Name of Company:</label>
+                <input type="text" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.2 Registered Trade Name (if any):</label>
+                <input type="text" class="w-full p-2 border rounded mb-4">
+                
+                <label class="block mb-2">2.3 Company Registration Number:</label>
+                <input type="text" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.4 Taxpayer Identification Number (TIN):</label>
+                <input type="text" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.5 Date of Incorporation:</label>
+                <input type="date" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.6 Date of Commencement:</label>
+                <input type="date" class="w-full p-2 border rounded mb-4">
+                
+                <label class="block mb-2">2.7 Physical Location/Registered Office:</label>
+                <input type="text" class="w-full p-2 border rounded mb-4" placeholder="District">
+                <input type="text" class="w-full p-2 border rounded mb-4" placeholder="Town/City">
+                <input type="text" class="w-full p-2 border rounded mb-4" placeholder="Region">
+                
+                <label class="block mb-2">2.8 Postal Address:</label>
+                <input type="text" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.9 Digital Address (GhanaPost GPS):</label>
+                <input type="text" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.10 Telephone:</label>
+                <input type="tel" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">Mobile Number:</label>
+                <input type="tel" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.11 Website:</label>
+                <input type="url" class="w-full p-2 border rounded mb-4">
+                
+                <label class="block mb-2">2.12 E-mail Address:</label>
+                <input type="email" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">2.13 Fax (where applicable):</label>
+                <input type="text" class="w-full p-2 border rounded mb-4">
+                
+                <!-- <button type="submit" class="w-full bg-sky-700 text-white p-2 rounded hover:bg-orange-600">Submit</button> -->
+
+                <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 3: CONTACT INFORMATION </h1>
+                <label class="block mb-2">3.1 Name of Authorized Representative:</label>
+                <input type="text" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">3.2 Telephone:</label>
+                <input type="tel" class="w-full p-2 border rounded mb-4" required>
+                
+                <label class="block mb-2">3.3 E-mail Address:</label>
+                <input type="email" class="w-full p-2 border rounded mb-4" required>
+                
+        <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 4: Ownership Structure </h1>
+        <p class="mb-4 text-gray-800 font-bold">4.1 Shareholders (holding 5% or more shares):</p>
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border border-gray-300 p-2">No.</th>
+                        <th class="border border-gray-300 p-2">Name of Shareholder</th>
+                        <th class="border border-gray-300 p-2">Share Holding (%)</th>
+                        <th class="border border-gray-300 p-2">Nationality</th>
+                        <th class="border border-gray-300 p-2">Address (House No, Tel, Email)</th>
+                        <th class="border border-gray-300 p-2">Tax Identification Number (TIN)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-center">1</td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="number" class="w-full p-1 border rounded" min="5"
+                                required></td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-center">2</td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="number" class="w-full p-1 border rounded" min="5"
+                                required></td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-center">3</td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="number" class="w-full p-1 border rounded" min="5"
+                                required></td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-center">4</td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="number" class="w-full p-1 border rounded" min="5"
+                                required></td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-center">5</td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="number" class="w-full p-1 border rounded" min="5"
+                                required></td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        
+        <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 5: DIRECTORS </h1>
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border border-gray-300 p-2">No.</th>
+                        <th class="border border-gray-300 p-2">Name of Director</th>
+                        <th class="border border-gray-300 p-2">Nationality</th>
+                        <th class="border border-gray-300 p-2">Address (House No, Tel, Email)</th>
+                        <th class="border border-gray-300 p-2">Tax Identification Number (TIN)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-300 p-2 text-center">1</td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+                        </td>
+                    </tr>
+                    </tbody>
+<tbody>
+    <tr>
+        <td class="border border-gray-300 p-2 text-center">2</td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+    </tr>
+</tbody>
+<tbody>
+    <tr>
+        <td class="border border-gray-300 p-2 text-center">3</td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+    </tr>
+</tbody>
+<tbody>
+    <tr>
+        <td class="border border-gray-300 p-2 text-center">4</td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+    </tr>
+</tbody>
+<tbody>
+    <tr>
+        <td class="border border-gray-300 p-2 text-center">5</td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+        <td class="border border-gray-300 p-2"><input type="text" class="w-full p-1 border rounded" required>
+        </td>
+    </tr>
+</tbody>
+                </table>
+                </div>
+        
+                <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 6: EVIDENCE OF COMPANY REGISTRATION </h1>
+                <p class="text-gray-800 font-bold">Applicant must register a company with an object to provide electronic communications service and provide
+                the following as evidence of registration and incorporation:</p>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">a. Certification of Incorporation (in Ghana)</h2>
+                    <p class="text-gray-600 mb-4">Official document proving the legal formation of your company in Ghana.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                        file:mr-4 file:py-2 file:px-4
+                                        file:rounded-md file:border-0
+                                        file:text-sm file:font-semibold
+                                        file:bg-blue-50 file:text-blue-700
+                                        hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                    </div>
+                    </div>
+               
+                
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">b. Certificate to Commence Business (in Ghana)</h2>
+                    <p class="text-gray-600 mb-4">Document authorizing your company to begin operations in Ghana.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                                            file:mr-4 file:py-2 file:px-4
+                                                            file:rounded-md file:border-0
+                                                            file:text-sm file:font-semibold
+                                                            file:bg-blue-50 file:text-blue-700
+                                                            hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                        </div>
+                    </div>
+               
+                
+                <!-- Shareholders/Company Regulations -->
+               
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">c. Shareholders/Company Regulations</h2>
+                    <p class="text-gray-600 mb-4">Document outlining the governance structure and shareholder agreements.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                                            file:mr-4 file:py-2 file:px-4
+                                                            file:rounded-md file:border-0
+                                                            file:text-sm file:font-semibold
+                                                            file:bg-blue-50 file:text-blue-700
+                                                            hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                        </div>
+                    </div>
+              
+                
+                <!-- GIPC Certificate -->
+               
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">d. GIPC Certificate (where applicable)</h2>
+                    <p class="text-gray-600 mb-4">Ghana Investment Promotion Centre registration certificate for foreign companies.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                                            file:mr-4 file:py-2 file:px-4
+                                                            file:rounded-md file:border-0
+                                                            file:text-sm file:font-semibold
+                                                            file:bg-blue-50 file:text-blue-700
+                                                            hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                        </div>
+                    </div>
+                
+                <!-- Tax Clearance Certificate -->
+                
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">e. Tax Clearance Certificate</h2>
+                    <p class="text-gray-600 mb-4">Document proving your company is compliant with Ghana Revenue Authority tax
+                        obligations.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                                            file:mr-4 file:py-2 file:px-4
+                                                            file:rounded-md file:border-0
+                                                            file:text-sm file:font-semibold
+                                                            file:bg-blue-50 file:text-blue-700
+                                                            hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                        </div>
+                    </div>
+                
+                
+                <!-- SSNIT Clearance Certificate -->
+                
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">f. SSNIT Clearance Certificate for existing companies</h2>
+                    <p class="text-gray-600 mb-4">Document proving compliance with Social Security and National Insurance Trust
+                        obligations.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                                            file:mr-4 file:py-2 file:px-4
+                                                            file:rounded-md file:border-0
+                                                            file:text-sm file:font-semibold
+                                                            file:bg-blue-50 file:text-blue-700
+                                                            hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                        </div>
+                    </div>
+              
+                
+                <!-- List of Affiliate Companies -->
+                
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">g. List of Affiliate Companies</h2>
+                    <p class="text-gray-600 mb-4">Document listing all companies affiliated with or owned by your organization.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                                            file:mr-4 file:py-2 file:px-4
+                                                            file:rounded-md file:border-0
+                                                            file:text-sm file:font-semibold
+                                                            file:bg-blue-50 file:text-blue-700
+                                                            hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                        </div>
+                    </div>
+               
+
+                <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 7: PROFILE OF TECHNICAL STAFF </h1>
+                   
+                    <p class="text-gray-600 mb-4">Attach a document profiling the technical staff of your company.</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" class="block w-full text-sm text-gray-500
+                                                                        file:mr-4 file:py-2 file:px-4
+                                                                        file:rounded-md file:border-0
+                                                                        file:text-sm file:font-semibold
+                                                                        file:bg-blue-50 file:text-blue-700
+                                                                        hover:file:bg-blue-100" accept=".pdf">
+                            <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+                        </div>
+                    </div>            
+               
+
+    <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 8: BUSINESS PLAN: (Not applicable to Applicants for Class A licence) </h1>
+    <p class="text-gray-800 font-bold">A business plan is required to accompany your application. This should include details on the following
+    items of information:</p>
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">8.1 COMPANY PROFILE</h2>
+        <p class="text-gray-600 mb-4">a) Organisational Structure (including educational and technical background as well as
+        experience of key personnel)
+        <br>
+        b) Mission Statement
+        <br>
+        c) Full particulars of the company’s experience and expertise, including those of its Partners,
+        Suppliers, Contractors, and Providers of Technical Support (if applicable)
+        <br>
+        d) Capital Investment: This should include: 
+        <br>
+        i. Equipment Categories
+        <br>
+        ii. Equipment Prices
+        <br>
+        iii. Equipment Suppliers
+        <br>
+        iv. Capital Investment Summary</p>
+
+        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+            <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+            <div class="flex items-center space-x-4">
+                <input type="file" class="block w-full text-sm text-gray-500
+                                                                    file:mr-4 file:py-2 file:px-4
+                                                                    file:rounded-md file:border-0
+                                                                    file:text-sm file:font-semibold
+                                                                    file:bg-blue-50 file:text-blue-700
+                                                                    hover:file:bg-blue-100" accept=".pdf">
+                <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+            </div>
+            
+        </div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">8.2 MARKETING PLAN</h2>
+        <p class="text-gray-600 mb-4">
+        a) Business Idea and Choice of Technology
+        <br>
+        b) Market Analysis
+        <br>
+        c) Network Deployment and Services to be offered
+        <br>
+        d) Roll-out Plan and Coverage Area
+        <br>
+        e) Market: This is to include Marketing Goals, Target Groups etc.    
+        </p>
+        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+            <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+            <div class="flex items-center space-x-4">
+                <input type="file" class="block w-full text-sm text-gray-500
+                                                                            file:mr-4 file:py-2 file:px-4
+                                                                            file:rounded-md file:border-0
+                                                                            file:text-sm file:font-semibold
+                                                                            file:bg-blue-50 file:text-blue-700
+                                                                            hover:file:bg-blue-100" accept=".pdf">
+                <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">8.3 FINANCIAL REPORTS</h2>
+        <p class="text-gray-600 mb-4">
+        a) Audited Financial Reports for the past five years
+        <br>
+        This should include:
+        <br>
+        i. Income Statement
+        <br>
+        ii. Balance Sheet
+        <br>
+        iii. Cash Flow Statement
+        <br>
+        iv. Evidence of sustained funding
+        <br>
+        <br>
+        b) Financial Projections including:
+        <br>
+        i Projected Income Statement
+        <br>
+        ii Projected Balance Sheet
+        <br>
+        iii Projected Cash Flow Statement
+        <br>
+        <br>
+        c) Financing Plan including:
+        <br>
+        i. Equity
+        <br>
+        ii. Suppliers Credit (if any)
+        <br>
+        iii. Bank Loan (if any)
+        </p>
+        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+            <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+            <div class="flex items-center space-x-4">
+                <input type="file" class="block w-full text-sm text-gray-500
+                                                                                    file:mr-4 file:py-2 file:px-4
+                                                                                    file:rounded-md file:border-0
+                                                                                    file:text-sm file:font-semibold
+                                                                                    file:bg-blue-50 file:text-blue-700
+                                                                                    hover:file:bg-blue-100" accept=".pdf">
+                <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+            </div>
+        </div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">8.4 Any other information that is relevant to demonstrate the viability of the business</h2>
+        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+            <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+            <div class="flex items-center space-x-4">
+                <input type="file" class="block w-full text-sm text-gray-500
+                                                                                            file:mr-4 file:py-2 file:px-4
+                                                                                            file:rounded-md file:border-0
+                                                                                            file:text-sm file:font-semibold
+                                                                                            file:bg-blue-50 file:text-blue-700
+                                                                                            hover:file:bg-blue-100"
+                    accept=".pdf">
+                <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+            </div>
+        </div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">8.5 Applicant must pay the non-refundable requisite application fee
+            by Banker’s Draft to the
+            National Communications Authority (NCA) or by Bank transfer.</h2>
+        <p class="text-gray-600 mb-4">NOTE:All Applications shall be accompanied by Receipt of Payment of the applicable
+            non-refundable application fee as
+            stipulated in the NCA’s Schedule of Fees</p>
+        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+            <label class="block mb-2 text-sm font-medium text-gray-700">Attach PDF</label>
+            <div class="flex items-center space-x-4">
+                <input type="file" class="block w-full text-sm text-gray-500
+                                                                                        file:mr-4 file:py-2 file:px-4
+                                                                                        file:rounded-md file:border-0
+                                                                                        file:text-sm file:font-semibold
+                                                                                        file:bg-blue-50 file:text-blue-700
+                                                                                        hover:file:bg-blue-100" accept=".pdf">
+                <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+            </div>
+        </div>
+    <h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 9: EMPLOYEE COUNT </h1>
+    <label class="block mb-2">9.1 Number of Employees (Actual)</label>
+    <input type="text" class="w-full p-2 border rounded mb-4" required>
+
+    <label class="block mb-2">9.2 Number of Employees (Proposed)</label>
+    <input type="text" class="w-full p-2 border rounded mb-4" required>
+  
+<h1 class="bg-sky-700 px-6 text-white font-bold mb-6 text-xl">Section 10: OATH </h1>
+
+<div class="bg-gray-50 p-4 rounded-xl text-sm text-gray-700 border border-gray-200">
+    <p class="mb-2">
+        I, <input type="text" class="w-full p-2 border rounded mb-4" placeholder="type your name / company name" required>,hereby certify that the information
+        supplied in this application form is true to the best of my/our knowledge and I/We hereby give an undertaking
+        that upon the grant of the Licence, I/We shall abide by the terms and conditions upon which the Licence is
+        granted.
+    </p>
+    <p>
+        I/We accept that my/our Licence shall be revoked and the appropriate penalty/penalties applied if it is
+        established
+        that I/We have been granted the Licence based on inaccurate information provided.
+    </p>
+</div>
+
+<!-- Signature or Initials -->
+<div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+    <label for="signature" class="block text-sm font-medium text-gray-700 mb-1">Attach Signature</label>
+    <input type="file" class="block w-full text-sm text-gray-500
+                                                                                            file:mr-4 file:py-2 file:px-4
+                                                                                            file:rounded-md file:border-0
+                                                                                            file:text-sm file:font-semibold
+                                                                                            file:bg-blue-50 file:text-blue-700
+                                                                                            hover:file:bg-blue-100"
+        accept=".pdf">
+    <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+</div>
+
+<!-- Date -->
+<div>
+    <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+    <input type="date" id="date" name="date"
+        class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+        required />
+</div>
+
+<!-- Passport Photo Upload -->
+<div class="border-2 border-dashed border-gray-300 rounded-lg p-4">
+    <label for="passport" class="block text-sm font-medium text-gray-700 mb-1">Attach Passport Photo</label>
+    <input type="file" class="block w-full text-sm text-gray-500
+                                                                                                file:mr-4 file:py-2 file:px-4
+                                                                                                file:rounded-md file:border-0
+                                                                                                file:text-sm file:font-semibold
+                                                                                                file:bg-blue-50 file:text-blue-700
+                                                                                                hover:file:bg-blue-100"
+        accept=".pdf">
+    <span class="text-sm text-gray-500">PDF only, max 5MB</span>
+</div>
+
+<!-- Submit -->
+<div class="pt-4">
+    <button type="submit" class="px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        SUBMIT
+    </button>
+    </div>
+</form>
+
+</div>
+<div class="my-8"></div>
+</body>
 
 {% endblock content %}
 
