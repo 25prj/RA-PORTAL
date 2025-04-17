@@ -25,6 +25,7 @@ def type_approval_view(request):
     return render(request,'user_ui/type_approval.html', {'form':form})
 
 # dealership license form func
+@users_authentication
 def dealership(request):
     return render(request,'user_ui/dealership-form.html')
 
