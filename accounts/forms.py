@@ -31,7 +31,7 @@ class SignupForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={
         "placeholder": "First Name",
         'class':'py-2 px-2 w-full focus:outline-none'
-    }))
+    }), help_text="<span><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_only</small></span>")
     
     last_name = forms.CharField(widget=forms.TextInput(attrs={
         "placeholder": "Last Name",
@@ -58,7 +58,7 @@ class SignupForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
         "placeholder": "password",
         'class':'py-2 px-2 w-full focus:outline-none'
-    }))
+    }),help_text = '<ul class="form-text text-muted small"><li>Your password can\'t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li><li>Your password can\'t be entirely numeric.</li></ul>')
 
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         "placeholder": "confirm password",
