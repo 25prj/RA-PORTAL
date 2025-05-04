@@ -1,2 +1,3 @@
 django-phonenumber-field[phonenumbers]
 django-tailwind
+django-filter
