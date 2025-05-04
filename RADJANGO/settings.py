@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)4t6x9!!5==5p#jh+wy*&zkl=v0+2(c+za6&j5(^o5w4bvlqw1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ra-portal-9.onrender.com']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
