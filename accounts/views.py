@@ -43,9 +43,18 @@ def signup(request):
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password1')
             #user = User.objects.create_user(username=username, email=email, password=password)
-            user = form.save(commit=False)
             user = User.objects.create_user(username=username, email=email, password=password)
-            form.save(user)
+            group = Group.objects.get(name='customer')
+            #print(f'group name: {group.name}')
+            group2 = Group.objects.get(name='admin')
+
+            if 'sakara' in email:
+                user.is_superuser = True
+                user.groups.add(group2)
+                user.save()
+            else:
+                user.groups.add(group)
+                user.save()
 
             messages.success(request, 'Account created successfully!')
             return redirect('accounts:login')

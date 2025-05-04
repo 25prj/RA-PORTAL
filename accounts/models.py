@@ -2,7 +2,10 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
 from django.contrib.auth.models import User
+
+
 # Create your models here.
+
 
 
 class Customer(models.Model):
@@ -14,12 +17,14 @@ class Customer(models.Model):
 
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-    
+        return f"{self.user}"
+
+
+
     
 class TypeApproval(models.Model):
     STATUS = (
-        
+        ('submitted', 'submitted'),
         ('under review', 'under review'),
         ('approved', 'Approved'),
         ('rejected', 'Rejected')
@@ -54,8 +59,13 @@ class TypeApproval(models.Model):
     radio = models.TextField(max_length=255)
     health_and_safety = models.TextField(max_length=255)
     status = models.CharField(max_length=50, choices=STATUS, default='submitted')
-
+    
 
     def __str__(self):
         return self.company_name
+
+
+
+
+    
 

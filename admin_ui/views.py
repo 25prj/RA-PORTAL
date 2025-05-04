@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from accounts.decorators import admin_only,allowed_users
 from user_ui.models import TypeApproval
+from django.http import HttpResponse
 # Create your views here.
 
 from accounts.models import Customer,TypeApproval
@@ -36,6 +37,22 @@ def admin_ui(request):
 def dashboard(request):
     return render(request,'admin_ui/dashboard.html')
 
+#generating a text file
+def type_approval_textFile(request):
+    response = HttpResponse(content_type = 'text/plain')
+    response['Content-Disposition'] = 'attachment; filename=type_approval.txt'
+    approvals = TypeApproval.objects.all()
+
+    # Create a list to hold the lines of text 
+    lines = []
+    #looping thru
+    for approval in approvals:
+        lines.append(f"{approval}\n")
+    
+    
+    #Write the lines to the response
+    response.writelines(lines)
+    return response
 
 @admin_only
 def type_approval(request):
