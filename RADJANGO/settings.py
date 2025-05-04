@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)4t6x9!!5==5p#jh+wy*&zkl=v0+2(c+za6&j5(^o5w4bvlqw1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
+
+CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
