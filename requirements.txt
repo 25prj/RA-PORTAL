@@ -1,3 +1,3 @@
-pip install "django-phonenumber-field[phonenumbers]"
+django-phonenumber-field[phonenumbers]
 python -m pip install django-tailwind
 pip install django
