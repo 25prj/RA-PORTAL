@@ -1,5 +1,5 @@
 from django import forms 
-from . models import TypeApproval
+from accounts.models import TypeApproval
 from phonenumber_field.formfields import PhoneNumberField
 from django.utils import timezone
 
@@ -7,7 +7,8 @@ from django.utils import timezone
 class TypeApprovalForm(forms.ModelForm):
     class Meta:
         model = TypeApproval
-        fields = "__all__"
+        #fields = "__all__"
+        exclude = ['status']
 
 
     company_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={

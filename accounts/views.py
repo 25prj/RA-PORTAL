@@ -35,38 +35,19 @@ def login_user(request):
 
 @unauthenticated_user
 def signup(request):
+    form = SignupForm()
     if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        username = request.POST.get('username')
-        company= request.POST.get('company')
-        email = request.POST.get('email')
-        password1 = request.POST.get('password1')
-        password2 = request.POST.get('password2')
-
-        if len(username) < 3: #check if username is less than 3 characters
-            messages.error(request, 'username should be 3 characters or more.')
-        elif User.objects.filter(email=email).exists(): #check if email already exists
-            messages.error(request, f'This email has an account already exists.')
-            
-        elif len(password1) < 8:
-            messages.error(request, 'Password is less than 8 characters.')
-        elif password1 != password2:
-            messages.error(request, 'Passwords do not match.')
-        else:
-            password = request.POST.get('password2')
-            user = User.objects.create_user(
-                username=username,
-                email=email,
-                first_name=first_name,
-                last_name=last_name,
-                password=password1,
-            )
-            
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password1')
+            #user = User.objects.create_user(username=username, email=email, password=password)
+            user = User.objects.create_user(username=username, email=email, password=password)
             group = Group.objects.get(name='customer')
             #print(f'group name: {group.name}')
             group2 = Group.objects.get(name='admin')
-            
+
             if 'sakara' in email:
                 user.is_superuser = True
                 user.groups.add(group2)
@@ -74,11 +55,60 @@ def signup(request):
             else:
                 user.groups.add(group)
                 user.save()
-               
 
+            messages.success(request, 'Account created successfully!')
             return redirect('accounts:login')
-    
-    return render(request, 'accounts/signup.html',{'form': SignupForm()})
+        
+    else:
+        form = SignupForm()
+    return render(request, 'accounts/signup.html', {'form': form})
+
+    '''
+    first_name = request.POST.get('first_name')
+    last_name = request.POST.get('last_name')
+    username = request.POST.get('username')
+    company= request.POST.get('company')
+    email = request.POST.get('email')
+    password1 = request.POST.get('password1')
+    password2 = request.POST.get('password2')
+
+    if len(username) < 3: #check if username is less than 3 characters
+        messages.error(request, 'username should be 3 characters or more.')
+    elif User.objects.filter(email=email).exists(): #check if email already exists
+        messages.error(request, f'This email has an account already exists.')
+        
+    elif len(password1) < 8:
+        messages.error(request, 'Password is less than 8 characters.')
+    elif password1 != password2:
+        messages.error(request, 'Passwords do not match.')
+    else:
+        password = request.POST.get('password2')
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            password=password1,
+        )
+        
+        group = Group.objects.get(name='customer')
+        #print(f'group name: {group.name}')
+        group2 = Group.objects.get(name='admin')
+        
+        if 'sakara' in email:
+            user.is_superuser = True
+            user.groups.add(group2)
+            user.save()
+        else:
+            user.groups.add(group)
+            user.save()
+            
+
+        return redirect('accounts:login')
+
+return render(request, 'accounts/signup.html',{'form': SignupForm()})
+    '''
+
 
 
 def warning_page(request):
