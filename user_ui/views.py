@@ -38,7 +38,7 @@ def type_approval_list(request):
     #costumer = TypeApproval.objects.get(id=3)
     first_name = request.user.first_name
     last_name = request.user.last_name
-
+    
     print(type_approvals)
     
 
