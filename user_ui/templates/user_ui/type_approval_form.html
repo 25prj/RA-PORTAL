@@ -1,0 +1,170 @@
+{% extends 'core/base.html' %}  <!-- Assuming you have a base template -->
+
+{% block content %}
+
+<body class="bg-gray-100">
+    <!-- Full-Width Header -->
+    <header class="bg-sky-700  text-white py-8 w-full -mt-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold uppercase">TYPE APPROVAL CERTIFICATE</h1>
+            <p class="mt-4 text-lg">Fill the form below to apply for your type approval certificate</p>
+        </div>
+    </header>
+
+
+<div class="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto">
+    <!-- Progress bar -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Type Approval Application</h2>
+      <div class="flex items-center justify-between mb-2">
+        {% for i in "123" %}
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center 
+              {% if i == step %}bg-blue-600 text-white
+              {% elif i < step %}bg-green-500 text-white
+              {% else %}bg-gray-200 text-gray-600{% endif %}">
+              {{ i }}
+            </div>
+            <span class="text-xs mt-1 text-gray-600">
+              {% if i == '1' %}Company Info
+              {% elif i == '2' %}Product Info
+              {% else %}Approval Details{% endif %}
+            </span>
+          </div>
+          {% if not forloop.last %}
+            <div class="flex-1 h-1 mx-2 {% if i < step %}bg-green-500{% else %}bg-gray-200{% endif %}"></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Form container -->
+    <div class="bg-white shadow rounded-lg p-6 sm:p-8">
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        <input type="hidden" name="step" value="{{ step }}">
+
+        <!-- Step 1: Company Info -->
+        {% if step == '1' %}
+        <div>
+          <h3 class="bg-sky-700 px-6 text-white text-xl font-bold py-2 mb-4">COMPANY INFORMATION</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class='col-span-1 mt-4 '>
+              <label for="company_name" class='font-semibold text-gray-700'>Company Name</label>
+              {{form.company_name}}
+            </div>
+
+            <div class='col-span-1 mt-4'>
+              <label for="contact_person" class='font-semibold text-gray-700'>Contact Person</label>
+              {{form.contact_person}}
+            </div>
+
+            <div class='col-span-1 mt-4'>
+              <label for="phone_no" class='font-semibold text-gray-700'>Phone Number</label>
+              {{form.phone_no}}
+            </div>
+
+            <div class='col-span-1 mt-4'>
+              <label for="phone_no2" class='font-semibold text-gray-700'>Phone Number</label>
+              {{form.phone_no2}}
+            </div>
+
+            <div class='col-span-2 mt-4'>
+              <label for="postal_address" class='font-semibold text-gray-700'>Postal Address</label>
+              {{form.postal_address}}
+            </div>
+
+            <div class='col-span-1 mt-4'>
+              <label for="fax_no " class='font-semibold text-gray-700'>Fax Number</label>
+              {{form.fax_no}}
+            </div>
+
+            <div class='col-span-1 mt-4'>
+              <label for="email" class='font-semibold text-gray-700'>Email</label>
+              {{form.email}}
+            </div>
+            <div class='col-span-1 mt-4'>
+              <label for="fax_no " class='font-semibold text-gray-700'>Alternate Email</label>
+              {{form.email}}
+            </div>
+
+
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Step 2: Product Info -->
+        {% if step == '2' %}
+        <div>
+          <h3 class="text-lg font-medium text-gray-900 mb-4">Product Information</h3>
+          <div class="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-6">
+            {% for field in form %}
+            <div class="sm:col-span-3">
+              <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                {{ field.label }}
+              </label>
+              <div class="mt-1">
+                {{ field }}
+                {% if field.errors %}
+                  <p class="mt-2 text-sm text-red-600">{{ field.errors|join:", " }}</p>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Step 3: Approval Details -->
+        {% if step == '3' %}
+        <div>
+          <h3 class="text-lg font-medium text-gray-900 mb-4">Approval Details</h3>
+          <div class="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-6">
+            {% for field in form %}
+            <div class="sm:col-span-3">
+              <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                {{ field.label }}
+              </label>
+              <div class="mt-1">
+                {{ field }}
+                {% if field.errors %}
+                  <p class="mt-2 text-sm text-red-600">{{ field.errors|join:", " }}</p>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Navigation buttons -->
+        <div class="flex justify-between pt-6 border-t border-gray-200">
+          {% if step != '1' %}
+            <a href="{{ request.path }}?step={{ step|add:'-1' }}" 
+               class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              Back
+            </a>
+          {% else %}
+            <div></div> <!-- Empty div for spacing when no back button -->
+          {% endif %}
+
+          {% if step != total_steps|stringformat:"i" %}
+            <button type="submit" 
+                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              Next
+            </button>
+          {% else %}
+            <button type="submit" 
+                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+              Submit Application
+            </button>
+          {% endif %}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+{% endblock %}

@@ -28,7 +28,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
 
-<body style='font-family:Gidole'>
+<body style='font-family:Gidole' class='bg-slate-100'>
     
 <!--sidebar-->    
 <aside style='font-family:Gidole' class="fixed overflow-hidden left-0 top-0 z-10 h-screen w-[calc(3.73rem)] border-r border-gray-300/40 bg-white hover:w-64 hover:shadow-2xl">
@@ -55,7 +55,7 @@
                 </li>
 
                 <li class='w-max text-gray-500'>
-                    <a href="" >
+                    <a href="{% url 'users-list'%}" >
                         <div class='w-max flex items-center px-4 gap-4  border-l-white py-1.5 border-l-[5px] hover:border-l-blue-400  '>
                             <svg class='size-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clip-rule="evenodd" />
@@ -80,7 +80,7 @@
                     
                 </li>
                 <li class='w-max text-gray-500'>
-                    <a href="">
+                    <a href="{% url 'dealership_list'%}">
                         <div class='w-max flex items-center px-4 gap-4 border-l-white py-1.5 border-l-[5px] hover:border-l-blue-400'>
                             <svg class="size-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
@@ -140,7 +140,7 @@
                     </div>
                 </a>
             </div>
-            <div class="px-16 lg:px-1.5">
+            <div class="px-16 lg:px-1.5 mr-8 ml-8 ">
 
                 <div>
                     
