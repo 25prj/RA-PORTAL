@@ -41,8 +41,8 @@ else:
 ALLOWED_HOSTS = []
 
 #twilio sms configuration
-TWILIO_ACCOUNT_SID = env('TWILIO_ACCOUNT_SSID')
-TWILIO_AUTH_TOKEN = env('TWILIO_AUTH_TOKEN')
+#TWILIO_ACCOUNT_SID = env('TWILIO_ACCOUNT_SSID')
+#TWILIO_AUTH_TOKEN = env('TWILIO_AUTH_TOKEN')
 
 LOGIN_URL = '/login/'
 #LOGIN_URL = 'two_factor:login'
@@ -208,11 +208,4 @@ if ENVIRONMENT == 'production':
     DEFAULT_FROM_EMAIL = 'NCA portal'
 else:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-#SMTP CONFIGURATION
-'''
-EMAIL_HOST = "smtp.google.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'sheriffsakara112@gmail.com'
-EMAIL_HOST_PASSWORD = 'mzqbgolbuevnakcg'
-'''
+
