@@ -41,8 +41,8 @@ else:
 ALLOWED_HOSTS = []
 
 #twilio sms configuration
-TWILIO_ACCOUNT_SID = 'ACa0f31a5db56256de113c74755fb0b0f8'
-TWILIO_AUTH_TOKEN = '5e9d4c48ebfa39a84ce95329c2c571af'
+TWILIO_ACCOUNT_SID = env('TWILIO_ACCOUNT_SSID')
+TWILIO_AUTH_TOKEN = env('TWILIO_AUTH_TOKEN')
 
 LOGIN_URL = '/login/'
 #LOGIN_URL = 'two_factor:login'
