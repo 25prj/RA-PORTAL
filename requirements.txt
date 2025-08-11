@@ -13,4 +13,4 @@ pyotp
 Pillow
 xhtml2pdf #for PDF generation
 django-axes #for login attempts
-django-envrion #for environment variables
+django-envrion==0.12.0 #for environment variables
