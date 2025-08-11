@@ -3,43 +3,39 @@
 
 {% block content %}
 <h2 class='font-light text-3xl p-4 text-center mb-2'>My Type Approvals </h2>
-<section class="container px-4 mx-auto mb-6">
+<section class="container px-4 mx-auto mb-8 ">
     <div class="flex flex-col">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                        <thead class="bg-gray-50 dark:bg-gray-800">
+                <div class="overflow-hidden border border-gray-200  md:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-100 ">
+                        <thead class="bg-gray-50  ">
                             <tr>
                                 
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
                                     Company Name
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
                                     Customer
                                 </th>
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Postal Address
-                                </th>
                                 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                
+                                <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
                                     Phone Number
                                 </th>
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
                                     Product Type
                                 </th>
 
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-semibold text-left rtl:text-right text-gray-700 ">
                                     Status
                                 </th>
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    Purchase
-                                </th>
+                            
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-semibold text-left rtl:text-right text-gray-700 ">
                                     Date
                                 </th>
 
@@ -51,37 +47,35 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                            {% if type_approvals  %}
-                                {% for approval in type_approvals  %}
+                        <tbody class="bg-white divide-y divide-gray-200  ">
+                            {% if type_list  %}
+                                {% for approval in type_list  %}
                                 
                                 <tr>
                                     
                                     
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.company_name}}
+                                    <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{approval.company_name}}
 
                                     </td>
                                     
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                    <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
                                         <div class="flex items-center gap-x-2">
                                             <img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
                                             <div>
-                                                <h2 class="text-sm font-medium text-gray-800 dark:text-white ">{{approval.contact_person}}</h2>
+                                                <h2 class="text-sm font-medium text-gray-800  ">{{approval.customer}}</h2>
                                                 <p class="text-xs font-normal text-gray-600 dark:text-gray-400">{{approval.email}}</p>
                                             </div>
                                         </div>
+                                            
+                                    <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{approval.phone_no}}
                                     </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.postal_address}}
-                                    </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.phone_no}}
-                                    </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.product_type}}
+                                    <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{approval.product_type}}
                                     </td>
 
                                     <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                         {% if approval.status == 'approved' %}
                                         
-                                        <div class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
+                                        <div class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-800 bg-emerald-100/60 ">
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
@@ -89,7 +83,7 @@
                                             <h2 class="text-sm font-normal">{{approval.status}}</h2>
                                         </div>
                                         {% elif approval.status == 'submitted'%}
-                                        <div class="inline-flex items-center px-3 py-1 text-gray-500 rounded-full gap-x-2 bg-gray-100/60 dark:bg-gray-800">
+                                        <div class="inline-flex items-center px-3 py-1 text-gray-800 rounded-full gap-x-2 bg-gray-100/60 ">
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M4.5 7L2 4.5M2 4.5L4.5 2M2 4.5H8C8.53043 4.5 9.03914 4.71071 9.41421 5.08579C9.78929 5.46086 10 5.96957 10 6.5V10" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
@@ -98,7 +92,7 @@
                                         </div>
 
                                         {% elif approval.status == 'under review'%}
-                                        <div class="inline-flex items-center px-3 py-1 text-amber-500 rounded-full gap-x-2 bg-amber-100/60 dark:bg-gray-800">
+                                        <div class="inline-flex items-center px-3 py-1 text-amber-800 rounded-full gap-x-2 bg-amber-100/60 ">
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M4.5 7L2 4.5M2 4.5L4.5 2M2 4.5H8C8.53043 4.5 9.03914 4.71071 9.41421 5.08579C9.78929 5.46086 10 5.96957 10 6.5V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
@@ -109,7 +103,7 @@
 
 
                                         {% elif approval.status == 'rejected' %}
-                                        <div class="inline-flex items-center px-3 py-1 text-red-500 rounded-full gap-x-2 bg-red-100/60 dark:bg-gray-800">
+                                        <div class="inline-flex items-center px-3 py-1 text-red-800 rounded-full gap-x-2 bg-red-100/60 ">
                                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
@@ -119,22 +113,49 @@
     
 
                                         {% endif %}
+                                    
+                                    <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{approval.issue_date}}
                                     </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Monthly subscription
-                                    </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{{approval.issue_date}}
-                                    </td>
-                                    <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                    <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                                         <div class="flex items-center gap-x-6">
-                                            <a href="{% url 'user_ui:approval-view' approval.id%}" class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none " id="default-modal" tabindex="-1" aria-hidden="true">
-                                                View Details
+                                            <!--view button-->
+                                            <a href="{% url 'user_ui:approval-view' approval.id%}" class="text-gray-500 transition-colors duration-200  hover:text-indigo-500 focus:outline-none " id="default-modal" tabindex="-1" aria-hidden="true">
+                                                <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                                                </svg>
                                             </a>
+                                            <!--edit button-->
+                                            {% if approval.status == 'submitted' %}
+                                            
+                                                <a href="{% url 'user_ui:approval-edit' approval.id %}" class="text-gray-500 transition-colors duration-200   hover:text-indigo-500 focus:outline-none " id="default-modal" tabindex="-1" aria-hidden="true">
+                                                <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                                                <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                                                </svg>
+
+
+                                                </a>
+                                            {% else %}
+                                                <a href="#" class="text-gray-500 cursor-not-allowed transition-colors duration-200   hover:text-indigo-500 focus:outline-none " id="default-modal" tabindex="-1" aria-hidden="true">
+                                                <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                                                <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                                                </svg>
+
+
+                                                </a>
+                                            {% endif %}
                                     </td> 
                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                                         <div class="flex items-center gap-x-6">    
-    
+                                            
+                                            <!--download button-->
                                             <button class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                                                Download
+                                               <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                <path fill-rule="evenodd" d="M19.5 21a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-5.379a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H4.5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h15Zm-6.75-10.5a.75.75 0 0 0-1.5 0v4.19l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V10.5Z" clip-rule="evenodd" />
+                                                </svg>
+
                                             </button>
                                         </div>
                                     </td>
@@ -150,37 +171,69 @@
         </div>
     </div>
 
-    <div class="flex items-center justify-between mt-6">
-        <a href="#" class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-            </svg>
+        <!--new pagination style-->
+    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+        <span class="text-l font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-black">{{type_list.number}}</span> of <span class="font-semibold text-gray-900 dark:text-black">{{type_list.paginator.num_pages}}</span></span>
+        <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+            <li>
+                {% if type_list.has_previous %}
+                    <a href="?page={{style_list.previous_next_page}}" class="flex items-center justify-center space-x-1 px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
 
-            <span>
-                previous
-            </span>
-        </a>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                        </svg>
 
-        <div class="items-center hidden md:flex gap-x-3">
-            <a href="#" class="px-2 py-1 text-sm text-blue-500 rounded-md dark:bg-gray-800 bg-blue-100/60">1</a>
-            <a href="#" class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">2</a>
-            <a href="#" class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">3</a>
-            <a href="#" class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">...</a>
-            <a href="#" class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">12</a>
-            <a href="#" class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">13</a>
-            <a href="#" class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">14</a>
-        </div>
+                        <span>
+                            Previous
+                        </span>
+                    </a>
+                {% else %}
+                    <a href"#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight cursor-not-allowed text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" disabled>Previous</a>
+                {% endif %}
+            </li>
+            <!--pagination number list-->
+            
+            {% for i in nums %}
+                <li>
+                    <a href="?page={{forloop.counter}}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{forloop.counter}}</a>
+                </li>
+            {% endfor %}
+            <!--
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                </li>
+                <li>
+                    <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                </li>
+            -->
+            <li>
+                {% if type_list.has_next %}
+                    <a href="?page={{type_list.next_page_number}}" class="flex items-center justify-center space-x-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span>
+                            Next
+                        </span>
 
-        <a href="#" class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
-            <span>
-                Next
-            </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
+                    </a>
+                {% else %}
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight cursor-not-allowed text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" disabled>Next</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+    <!--end of new pagination style-->
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-            </svg>
-        </a>
-    </div>
+
+    {{data}}
+
 </section>
 
 {% endblock content %}

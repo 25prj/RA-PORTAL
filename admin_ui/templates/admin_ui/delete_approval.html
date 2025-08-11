@@ -1,0 +1,19 @@
+
+
+
+{% block content %}
+    <div>
+        <h3>Are you sure you want of delete <strong>{{approval.company_name}}</strong></h3>
+        <form action="" method='POST'>
+            {% csrf_token %}
+            <br>
+            <a href="{% url 'type-approval' %}">NO</a>
+            <button type=submit>YES</button>
+        </form>
+    </div>
+
+
+{% endblock content %}
+
+
+

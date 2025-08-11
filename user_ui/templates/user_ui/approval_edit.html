@@ -1,0 +1,36 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class='flex h-auto justify-center items-center'>
+    <div class='w-1/2 bg-white p-4'>
+        <h1 class='text-2xl font-semibold text-center'>TypeApproval License </h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <div class='grid grid-cols-2 gap-4'>
+                 {% for field in form %}
+                    <div class="sm:col-span-3">
+                    <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700">
+                        {{ field.label }}
+                    </label>
+                    <div class="mt-1">
+                        {{ field }}
+                        {% if field.errors %}
+                        <p class="mt-2 text-sm text-red-600">{{ field.errors|join:", " }}</p>
+                        {% endif %}
+                    </div>
+                    </div>
+                    {% endfor %}
+            </div>
+
+            <button type='submit' class='px-6 py-2 text-white font-semibold bg-blue-500 hover:bg-blue-700 mt-4 rounded-md'>Update and Save</button>
+            
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+

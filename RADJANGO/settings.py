@@ -13,6 +13,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
+from environ import  Env 
+env = Env()
+Env.read_env()
+
+ENVIRONMENT=env('ENVIRONMENT', default="")
+
+
+#from django.conf import ENVIRONMENT_VARIABLE
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,14 +30,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)4t6x9!!5==5p#jh+wy*&zkl=v0+2(c+za6&j5(^o5w4bvlqw1'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if ENVIRONMENT == 'development':
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = []
 
+#twilio sms configuration
+TWILIO_ACCOUNT_SID = 'ACa0f31a5db56256de113c74755fb0b0f8'
+TWILIO_AUTH_TOKEN = '5e9d4c48ebfa39a84ce95329c2c571af'
+
 LOGIN_URL = '/login/'
+#LOGIN_URL = 'two_factor:login'
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -49,13 +67,35 @@ INSTALLED_APPS = [
     #tailwind apps
     'tailwind',
     'theme',
-
+    #phone number field
     'phonenumber_field',
-
+    #django filter 
     'django_filters',
+    #django twilio API
+    'django_twilio',
+    #formtools for styling forms
+    'formtools',
+    #tailwind crispy forms 
+    'crispy_forms',
+    'crispy_tailwind',
+    #2FA
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_email',  # <- if you want email capability.
+    'two_factor',
+    'two_factor.plugins.phonenumber',  # <- if you want phone number capability.
+    'two_factor.plugins.email',  # <- if you want email capability.
+    #'two_factor.plugins.yubikey',  # <- for yubikey capability.
+
 ]
 
 TAILWIND_APP_NAME = 'theme'
+
+#crispy tailwind template pack
+CRISPY_ALLOWED_TEMPLATE_PACK = 'tailwind'
+
+CRISPY_TEMPLATE_PACK = 'tailwind'
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -71,6 +111,9 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    'django_otp.middleware.OTPMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -144,6 +187,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 MEDIA_URL = '/images/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -153,3 +197,22 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if ENVIRONMENT == 'production':
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = env('EMAIL_ADDRESS')
+    EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+    DEFAULT_FROM_EMAIL = 'NCA portal'
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+#SMTP CONFIGURATION
+'''
+EMAIL_HOST = "smtp.google.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sheriffsakara112@gmail.com'
+EMAIL_HOST_PASSWORD = 'mzqbgolbuevnakcg'
+'''

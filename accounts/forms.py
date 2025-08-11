@@ -20,12 +20,17 @@ class LoginForm(AuthenticationForm):
     }))
 
 
+# password resetting form
+class PasswordChangeForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password')
     
 
 class SignupForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name','username','company', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name','username', 'email', 'password1', 'password2']
 
 
     first_name = forms.CharField(widget=forms.TextInput(attrs={
@@ -45,10 +50,7 @@ class SignupForm(UserCreationForm):
         'class':'py-2 px-2 w-full focus:outline-none'
     }),label="", help_text="<span class='font-small text-gray-500'><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_only</small></span>")
     
-    company = forms.CharField(widget=forms.TextInput(attrs={
-        "placeholder": "Company",
-        'class':'py-2 px-2 w-full focus:outline-none'
-    }), label='',  help_text="<span class='font-small text-gray-500'><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_only</small></span>")
+    
 
     email = forms.CharField(widget=forms.EmailInput(attrs={
         "placeholder": "example@gmail.com",

@@ -16,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from two_factor.urls import urlpatterns as tf_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+   # path("",include("django.contrib.auth.urls")),
     path("",include("core.urls")),
-    path("", include("accounts.urls")),
+   # path('', include(tf_urls)),
+    path("account/", include("accounts.urls")),
     path("", include("admin_ui.urls")),
     path("",include("user_ui.urls")),
 

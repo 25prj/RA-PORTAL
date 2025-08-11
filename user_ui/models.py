@@ -1,6 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils import timezone
+from accounts.models import Customer
 # Create your models here.
 
 class TypeApproval(models.Model):
@@ -12,8 +13,8 @@ class TypeApproval(models.Model):
     company_name = models.CharField(max_length=100)
     contact_person = models.CharField(max_length=100)
     postal_address = models.TextField(max_length=255)
-    phone_no = PhoneNumberField()
-    phone_no2 = PhoneNumberField()
+    phone_no = models.CharField(max_length=10)
+    phone_no2 = models.CharField(max_length=10)
     fax_no = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     alt_email = models.EmailField(max_length=100)
@@ -30,7 +31,7 @@ class TypeApproval(models.Model):
 
 
     issue_body = models.CharField(max_length=100)
-    issue_date = models.DateField(default=timezone.now)
+    issue_date = models.DateField()
     validity = models.CharField(max_length=50)
 
     emc = models.TextField(max_length=255)
@@ -41,4 +42,15 @@ class TypeApproval(models.Model):
 
 
     def __str__(self):
-        return self.company_name
+        return f"{self.contact_person} from {self.company_name}"
+    
+
+class Dealership(models.Model):
+    company_name = models.CharField(max_length=50)
+    trade_name  = models.CharField(max_length=50)
+
+    date = models.DateField()
+    postal_address = models.CharField(max_length=100)
+    digital_address = models.CharField(max_length=50)
+
+    

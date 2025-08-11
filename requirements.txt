@@ -1,3 +1,15 @@
-pip install "django-phonenumber-field[phonenumbers]"
-python -m pip install django-tailwind
-pip install django
+django-phonenumber-field[phonenumbers]
+django-tailwind
+django
+django-twilio
+django-formtools
+django-allauth
+django-two-factor-auth
+django-filter
+django-crispy-forms
+crispy-tailwind
+pyotp
+Pillow
+xhtml2pdf #for PDF generation
+django-axes #for login attempts
+django-envrion #for environment variables
