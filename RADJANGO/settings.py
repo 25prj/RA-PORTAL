@@ -31,9 +31,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-            
-
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
@@ -43,6 +40,7 @@ else:
 
 ALLOWED_HOSTS = []
 
+#twilio sms configuration
 
 
 LOGIN_URL = '/login/'
@@ -72,7 +70,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     #django filter 
     'django_filters',
-   
+    #django twilio API
+    'django_twilio',
     #formtools for styling forms
     'formtools',
     #tailwind crispy forms 
@@ -208,4 +207,11 @@ if ENVIRONMENT == 'production':
     DEFAULT_FROM_EMAIL = 'NCA portal'
 else:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
+#SMTP CONFIGURATION
+'''
+EMAIL_HOST = "smtp.google.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sheriffsakara112@gmail.com'
+EMAIL_HOST_PASSWORD = 'mzqbgolbuevnakcg'
+'''
