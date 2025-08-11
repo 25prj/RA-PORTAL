@@ -1,0 +1,277 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div>
+   <h1 class='font-normal text-gray-800 px-4 text-2xl text-center'>Dealership License Applications</h1>
+</div>
+<div class='px-4 flex h-100 width-auto justify-center items-center mt-4 rounded-md bg-slate-100 '>
+    <div class="grid grid-cols-3 gap-3  w-2/3 p-6 bg-white text-wrap">
+        <div class='text-white bg-sky-700 capitalize px-6 font-semibold text-xl col-span-3'>Service Options</div>
+        <div>
+            <span class="text-lg font-semibold capitalize">class type</span>
+            <h1>{{details.cls_options}}</h1>
+        </div>
+        
+        <div class='col-span-2'>
+            <span class="text-lg font-semibold capitalize ">Equipment/Services</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.equipments}}</h1>
+        </div>
+
+        <div class='text-white bg-sky-700 uppercase px-6 font-semibold text-xl col-span-3'>corporate profile</div>
+        <div>
+            <span class="text-lg font-semibold capitalize">registered name of company</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.reg_company_name}}</h1>
+        </div>
+        
+        <div>
+            <span class="text-lg font-semibold capitalize">registered trade name (if any)</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.reg_trade_name}}</h1>
+        </div>
+        
+        <div>
+            <span class="text-lg font-semibold capitalize">company registration number</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.reg_company_num}}</h1>
+        </div>
+        
+        <div>
+            <span class="text-lg font-semibold capitalize">Taxpayer identification number(TIN)</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.tin_num}}</h1>
+        </div>
+        
+        <div>
+            <span class="text-lg font-semibold capitalize">date of incorporation</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.incorporation_date}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">Date of commencement</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.commencement_date}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">District</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.district}}</h1>
+        </div>
+        
+        <div>
+            <span class="text-lg font-semibold capitalize">Town</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.town}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">region</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.region}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">postal address</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{  details.postal_addr}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">Digital address(GPS)</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.gps}}</h1>
+        </div>
+        <div>
+            <span class="text-lg font-semibold capitalize">telephone number</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.tele_num}}</h1>
+        </div>
+        <div>
+            <span class="text-lg font-semibold capitalize">Phone number</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.phone_num}}</h1>
+        </div>
+
+        <div  class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>
+            <span class="text-lg font-semibold capitalize">website</span>
+            <h1>{{details.site}}</h1>
+        </div>
+        <div>
+            <span class="text-lg font-semibold capitalize">Fax number</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.fax}}</h1>
+        </div>
+
+        <!--contact info-->
+        <div class='text-white bg-sky-700 uppercase px-6 mt-2 font-semibold text-xl col-span-3'>Contact Information</div>
+        
+        <div>
+            <span class="text-lg font-semibold capitalize">authority representive name</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.auth_rep_name}}</h1>
+        </div>
+        
+        <div>
+            <span class="text-lg font-semibold capitalize">authority representive telephone number</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.auth_rep_tele_num}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">Email</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.email}}</h1>
+        </div>
+        
+        <!--Ownership-->
+        <div class='text-white bg-sky-700 uppercase px-6 mt-2 font-semibold text-xl col-span-3'>ownership</div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">shareholder name</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.shareholder_name}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">sharehold</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.sharehold}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">nationality</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.nationality}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">address</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.address}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">shareholder tin number</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.shareholder_tin_num}}</h1>
+        </div>
+
+        <!--directors -->
+        <div class='text-white bg-sky-700 uppercase px-6 mt-2 font-semibold text-xl col-span-3'>directors</div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">Director's name</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.d_name}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">Director's nationality</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.d_nationality}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">Director's Address</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.d_address}}</h1>
+        </div>
+
+        <div>
+            <span class="text-lg font-semibold capitalize">Director's tin number</span>
+            <h1 class='text-wrap broken-words overflow-hidden text-ellipsis max-w-full'>{{details.d_tin_num}}</h1>
+        </div>
+
+        <!--company registration Evidence-->
+        <div class='text-white bg-sky-700 uppercase px-6 mt-2 font-semibold text-xl col-span-3'>directors</div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">certificate of incorporation(in Ghana)</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.incorporation_cert}}</h1>
+        </div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">certificate of commence business(in Ghana)</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.commence_cert}}</h1>
+        </div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">shareholders/company regualatioins</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.share_cert}}</h1>
+        </div>
+        <div>
+            <span class="text-normal font-semibold capitalize">GIPC certificate(where applicable)</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.gipc_cert}}</h1>
+        </div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">tax clearance certificate</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.tax_cert}}</h1>
+        </div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">tax clearance certificate</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.tax_cert}}</h1>
+        </div>
+        <div>
+            <span class="text-normal font-semibold capitalize">tax clearance certificate</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.tax_cert}}</h1>
+        </div>
+        <div>
+            <span class="text-normal font-semibold capitalize">SSNIT clearance certificate for existing companies</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.ssnit_cert}}</h1>
+        </div>
+        <div>
+            <span class="text-normal font-semibold capitalize">list of afiliate companies</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.afiliate_cert}}</h1>
+        </div>
+        <div>
+            <span class="text-normal font-semibold capitalize">profile of technical staff</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.tech_stuff}}</h1>
+        </div>
+        <div>
+            <span class="text-normal font-semibold capitalize">company profile</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.company_profile_atch}}</h1>
+        </div>
+
+        <!--business PLAN-->
+        <div class='text-white bg-sky-700 uppercase px-6 mt-2 font-semibold text-xl col-span-3'>business plan</div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">marketing plan</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.market_plan_atch}}</h1>
+        </div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">financial report</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.financial_report_atch}}</h1>
+        </div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">bank receipt/bank transfer</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.bank_receipt}}</h1>
+        </div>
+
+        <!--business PLAN-->
+        <div class='text-white bg-sky-700 uppercase px-6 mt-2 font-semibold text-xl col-span-3'>others</div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">Number of employess(proposed)</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.num_employee}}</h1>
+        </div>
+        <div class='col-span-2'>
+            <span class="text-normal font-semibold capitalize">Number of employess(actually)</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.num_employee}}</h1>
+        </div>
+
+        <div class='col-span-3 p-2 text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>
+            <span class="text-normal font-semibold capitalize"></span>
+            <p class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>
+                I/We {{details.auth_rep_name}} hereby certify that the information 
+                supplied in this application form is true to the best of my/our knowledge
+                and I/We hereby give an undertaking that upon the grant of the license, I/We 
+                shall abide by the terms and conditions upon which the license is granted.
+                I/We accept that my/our license shall be revorked and the appropriate penalty/penalties 
+                applied if it is established that I/We have been granted the license based on 
+                inaccurate information provided.
+            </p>
+        </div>
+
+        <div>
+            <span class="text-normal font-semibold capitalize">date</span>
+            <h1 class='text-wrap text-sm italic font-light broken-words overflow-hidden text-ellipsis max-w-full'>{{details.date}}</h1>
+        </div>
+        <div>
+            <span class="text-normal font-semibold capitalize">Passport Picture</span>
+            <img src="{{ details.passport.url}}" alt="{{details.passport}}" class='rounded-md w-40'>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+

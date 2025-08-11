@@ -18,20 +18,33 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fira+Code:wght@300..700&family=Gidole&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+        
+        <!--Roboto font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fira+Code:wght@300..700&family=Gidole&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
         <title>RA PORTAL</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+        {% block head %}
+        
+        {% endblock head %}
+
+        
+        
     </head>
 
-<body style='font-family:Gidole'>
+<body style='font-family:Roboto' class='bg-slate-100'>
     
-    <nav class="relative container mx-auto p-6">
+    <nav class="relative container mt-4 min-h-10 sticky top-0 z-50 bg-white rounded-3xl shadow-lg mx-auto p-4">
         <!--FLEX CONTAINER -->
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between min-h-10">
     
             <!-- LOGO -->
             <div class="flex items-center pt-2">
-                <img src="{% static 'images/NCA.png'%}" alt="" />
+                <img src="{% static 'images/NCA.png'%}" alt="" class='w-40 h-10'/>
             </div>
     
             <!-- MENU ITEMS -->
@@ -100,7 +113,7 @@
                                 Type Approvals
                             </a>
 
-                            <a href="#edit" class="px-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-50 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <a href="{% url 'user_ui:dealership-list'%}" class="px-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-50 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
                                 Dealership License
                             </a>
 
@@ -176,7 +189,7 @@
 
                         
 
-                        <a href="#new" class="px-2 gap-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-200 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <a href="" class="px-2 gap-2 lg:py-1.5 py-2 w-full flex items-center rounded-md transition-colors text-left text-gray-800 hover:bg-gray-200 focus-visible:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                 <path d="M15.75 8.25a.75.75 0 0 1 .75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 1 1-.992-1.124A2.243 2.243 0 0 0 15 9a.75.75 0 0 1 .75-.75Z" />
                                 <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM4.575 15.6a8.25 8.25 0 0 0 9.348 4.425 1.966 1.966 0 0 0-1.84-1.275.983.983 0 0 1-.97-.822l-.073-.437c-.094-.565.25-1.11.8-1.267l.99-.282c.427-.123.783-.418.982-.816l.036-.073a1.453 1.453 0 0 1 2.328-.377L16.5 15h.628a2.25 2.25 0 0 1 1.983 1.186 8.25 8.25 0 0 0-6.345-12.4c.044.262.18.503.389.676l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.107 1.107 0 0 0-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 0 1-1.652.928l-.679-.906a1.125 1.125 0 0 0-1.906.172L4.575 15.6Z" clip-rule="evenodd" />
@@ -246,10 +259,12 @@
         {% endif %}
     </nav>
     
+    <div>
 
-    {% block content %}
-
-    {% endblock content%}
+        {% block content %}
+    
+        {% endblock content%}
+    </div>
 
   
     <!-- Footer -->

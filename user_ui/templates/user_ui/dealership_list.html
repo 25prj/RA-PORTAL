@@ -1,0 +1,220 @@
+
+{% extends "core/base.html" %}
+
+
+
+
+{% block content %}
+<div>
+
+    <h2 class='font-light text-3xl p-4 text-center mb-2'>Dealership License Applications </h2>
+    <section class="container px-4 mx-auto mb-8">
+        <div class="flex flex-col">
+            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                    <div class="overflow-hidden border border-gray-200  md:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200 d">
+                            <thead class="bg-gray-50 ">
+                                <tr>
+                                    
+    
+                                    <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
+                                        Company Name
+                                    </th>
+    
+                                    <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
+                                        Trade Name
+                                    </th>
+                                    
+                                
+                                    <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
+                                        Authority Representive
+                                    </th>
+                                    <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
+                                        Equipment/Services
+                                    </th>
+    
+                                    <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
+                                        Class Type
+                                    </th>
+    
+    
+                                    <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
+                                        Status
+                                    </th>
+                                
+    
+                                    <th scope="col" class="px-4 py-3.5 text-normal font-semibold text-left rtl:text-right text-gray-700 ">
+                                        Date
+                                    </th>
+    
+                                    <th scope="col" class="relative py-3.5 px-4">
+                                        <span class="sr-only">Actions</span>
+                                    </th>
+                                    <th scope="col" class="relative py-3.5 px-4">
+                                        <span class="sr-only">Actions</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200 ">
+                                {% if page_obj  %}
+                                    {% for license in page_obj  %}
+                                    
+                                    <tr>
+                                        
+                                        
+                                        <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{license.reg_company_name}}
+    
+                                        <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{license.reg_trade_name}}
+                                        </td>
+                                        <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">{{license.auth_rep_name}}
+                                        </td>
+                                        <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{license.equipments}}
+                                        </td>
+                                        <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{license.cls_options}}
+                                        </td>
+    
+                                        <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                            {% if license.status == 'approved' %}
+                                            
+                                            <div class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 ">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                
+                                                <h2 class="text-sm font-normal">{{license.status}}</h2>
+                                            </div>
+                                            {% elif license.status == 'submitted'%}
+                                            <div class="inline-flex items-center px-3 py-1 text-gray-500 rounded-full gap-x-2 bg-gray-100/60 ">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.5 7L2 4.5M2 4.5L4.5 2M2 4.5H8C8.53043 4.5 9.03914 4.71071 9.41421 5.08579C9.78929 5.46086 10 5.96957 10 6.5V10" stroke="#667085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+        
+                                                <h2 class="text-sm font-normal">{{license.status}}</h2>
+                                            </div>
+    
+                                            {% elif license.status == 'under review'%}
+                                            <div class="inline-flex items-center px-3 py-1 text-amber-500 rounded-full gap-x-2 bg-amber-100/60 ">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.5 7L2 4.5M2 4.5L4.5 2M2 4.5H8C8.53043 4.5 9.03914 4.71071 9.41421 5.08579C9.78929 5.46086 10 5.96957 10 6.5V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+        
+                                                <h2 class="text-sm font-normal">{{license.status}}</h2>
+                                            </div>
+    
+    
+    
+                                            {% elif license.status == 'rejected' %}
+                                            <div class="inline-flex items-center px-3 py-1 text-red-500 rounded-full gap-x-2 bg-red-100/60 ">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+        
+                                                <h2 class="text-sm font-normal">{{license.status}}</h2>
+                                            </div>
+        
+    
+                                            {% endif %}
+                                        
+                                        <td class="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">{{license.date}}
+                                        </td>
+                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                            <!--view button or view link -->
+                                            <div class="flex items-center gap-x-6">
+                                                
+                                                <a href="{% url 'user_ui:dealership-view' license.id%}" class="text-gray-500  transition-colors duration-200  hover:text-indigo-500 focus:outline-none " id="default-modal" tabindex="-1" aria-hidden="true">
+                                                    <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                                    <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                                                    </svg>
+    
+                                                </a>
+                                                <a href="#" class="text-gray-500 transition-colors duration-200  hover:text-indigo-500 focus:outline-none " id="default-modal" tabindex="-1" aria-hidden="true">
+                                                    <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                                                    <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                                                    </svg>
+    
+    
+                                                </a>
+                                        </td> 
+                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                            <div class="flex items-center gap-x-6">    
+        
+                                                <button class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                                                    <svg class='size-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                    <path fill-rule="evenodd" d="M19.5 21a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h-5.379a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H4.5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h15Zm-6.75-10.5a.75.75 0 0 0-1.5 0v4.19l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V10.5Z" clip-rule="evenodd" />
+                                                    </svg>
+
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                {% endif %}
+    
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+            <!--new pagination style-->
+        <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
+            <span class="text-l font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span class="font-semibold text-gray-900 dark:text-black">{{page_obj.number}}</span> of <span class="font-semibold text-gray-900 dark:text-black">{{page_obj.paginator.num_pages}}</span></span>
+            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                <li>
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{style_list.previous_next_page}}" class="flex items-center justify-center space-x-1 px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+                            </svg>
+    
+                            <span>
+                                Previous
+                            </span>
+                        </a>
+                    {% else %}
+                        <a href"#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight cursor-not-allowed text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" disabled>Previous</a>
+                    {% endif %}
+                </li>
+                <!--pagination number list-->
+                
+                {% for i in nums %}
+                    <li>
+                        <a href="?page={{forloop.counter}}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{forloop.counter}}</a>
+                    </li>
+                {% endfor %}
+              
+                <li>
+                    {% if page_obj.has_next %}
+                        <a href="?page={{page_obj.next_page_number}}" class="flex items-center justify-center space-x-1 px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span>
+                                Next
+                            </span>
+    
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                            </svg>
+                        </a>
+                    {% else %}
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight cursor-not-allowed text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" disabled>Next</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+        <!--end of new pagination style-->
+    
+    
+    </section>
+</div>
+
+{% endblock content %}
+
+
+
+
+

@@ -1,3 +1,16 @@
 django-phonenumber-field[phonenumbers]
 django-tailwind
 django-filter
+django
+django-twilio
+django-formtools
+django-allauth
+django-two-factor-auth
+django-filter
+django-crispy-forms
+crispy-tailwind
+pyotp
+Pillow
+xhtml2pdf #for PDF generation
+django-axes #for login attempts
+django-envrion #for environment variables
