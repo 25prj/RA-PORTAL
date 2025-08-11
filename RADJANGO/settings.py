@@ -30,7 +30,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-)4t6x9!!5==5p#jh+wy*&zkl=v0+2(c+za6&j5(^o5w4bvlqw1'
+            
+
+'ocoblbrftqbwgvmm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
@@ -40,9 +43,7 @@ else:
 
 ALLOWED_HOSTS = []
 
-#twilio sms configuration
-#TWILIO_ACCOUNT_SID = env('TWILIO_ACCOUNT_SSID')
-#TWILIO_AUTH_TOKEN = env('TWILIO_AUTH_TOKEN')
+
 
 LOGIN_URL = '/login/'
 #LOGIN_URL = 'two_factor:login'
@@ -71,8 +72,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     #django filter 
     'django_filters',
-    #django twilio API
-    'django_twilio',
+   
     #formtools for styling forms
     'formtools',
     #tailwind crispy forms 
