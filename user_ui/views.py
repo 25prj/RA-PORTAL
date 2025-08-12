@@ -115,9 +115,7 @@ class TypeApprovalView(View):
                         type_approval_instance.customer = request.user.customer
                         type_approval_instance.save()
                     
-                        print('------------------- Data collected ---------------\n')
-                        print(form_data)
-                        print(f'\n{type_approval_instance}')
+                        
 
                         del request.session['form_data']
                         #del form_data
@@ -240,8 +238,8 @@ class dealershipView(LoginRequiredMixin,View):
                 request.session['dealership_form_data'].update(clean_data)
                 request.session.modified = True 
 
-                print('------------------- Data collected ---------------\n')
-                print(f'\n{request.session['dealership_form_data']}')
+              
+              
                 return redirect(self.get_redirect_url('2'))
             
         elif step == '2':
@@ -255,8 +253,7 @@ class dealershipView(LoginRequiredMixin,View):
                 request.session['dealership_form_data'].update(clean_data)
                 request.session.modified = True 
 
-                print('------------------- Data collected ---------------\n')
-                print(f'\n{request.session['dealership_form_data']}')
+               
 
                 return redirect(self.get_redirect_url('3'))
 
@@ -269,8 +266,7 @@ class dealershipView(LoginRequiredMixin,View):
                 request.session['dealership_form_data'].update(clean_data)
                 request.session.modified = True 
 
-                print('------------------- Data collected ---------------\n')
-                print(f'\n{request.session['dealership_form_data']}')
+                
 
                 return redirect(self.get_redirect_url('4'))
             
@@ -281,8 +277,7 @@ class dealershipView(LoginRequiredMixin,View):
                 request.session['dealership_form_data'].update(clean_data)
                 request.session.modified = True 
 
-                print('------------------- Data collected ---------------\n')
-                print(f'\n{request.session['dealership_form_data']}')
+                
 
                 return redirect(self.get_redirect_url('5'))
             
@@ -293,8 +288,7 @@ class dealershipView(LoginRequiredMixin,View):
                 request.session['dealership_form_data'].update(clean_data)
                 request.session.modified = True 
 
-                print('------------------- Data collected ---------------\n')
-                print(f'\n{request.session['dealership_form_data']}')
+                
 
                 return redirect(self.get_redirect_url('6'))
             
@@ -324,8 +318,7 @@ class dealershipView(LoginRequiredMixin,View):
                 request.session['dealership_form_data'].update(clean_data)
                 request.session.modified = True 
 
-                print('------------------- Data collected ---------------\n')
-                print(f'\n{request.session['dealership_form_data']}')
+ 
 
                 return redirect(self.get_redirect_url('7'))
             
@@ -355,9 +348,7 @@ class dealershipView(LoginRequiredMixin,View):
                 request.session['dealership_form_data'].update(clean_data)
                 request.session.modified = True 
 
-                print('------------------- Data collected ---------------\n')
-                print(f'\n{request.session['dealership_form_data']}')
-                return redirect(self.get_redirect_url('8'))
+               
                 
         elif step == '8':
             form = othersForm(request.POST, request.FILES)
@@ -387,10 +378,7 @@ class dealershipView(LoginRequiredMixin,View):
                     dealership_instance.save()
                     dealership_instance.customer.save()
 
-                    print('------------------- Data collected ---------------\n')
-                    print(f'\n{form_data}')
-                    print(f'\n{dealership_instance}')
-                    print(dealership_instance.customer)
+                    
 
                     del request.session['dealership_form_data']
 
