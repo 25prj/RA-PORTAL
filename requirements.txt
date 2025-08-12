@@ -12,4 +12,4 @@ pyotp
 Pillow
 xhtml2pdf #for PDF generation
 django-axes #for login attempts
-django-environ=0.120 #for environment variables
+django-environ==0.120 #for environment variables
