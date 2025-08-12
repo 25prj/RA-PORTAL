@@ -1,9 +1,5 @@
 django-phonenumber-field[phonenumbers]
 django-tailwind
-<<<<<<< HEAD
-=======
-django-filter
->>>>>>> 6a3bb57a23af4ef7055088aa7d14b4a297f39767
 django
 django-twilio
 django-formtools
@@ -16,6 +12,4 @@ pyotp
 Pillow
 xhtml2pdf #for PDF generation
 django-axes #for login attempts
-
-
 django-envrion==0.12.0 #for environment variables
