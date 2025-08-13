@@ -39,15 +39,16 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG = True
 
-#ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
+ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
 
-#CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
-
+CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
+'''
 if ENVIRONMENT == 'development':
     ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
     CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
 else:
     ALLOWED_HOSTS = ['*']
+'''
 
 
 # check if running locally (development)
