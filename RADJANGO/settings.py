@@ -12,12 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import socket
 
 from environ import  Env 
 env = Env()
 Env.read_env()
 
-ENVIRONMENT=env('ENVIRONMENT', default="")
+ENVIRONMENT=env('ENVIRONMENT', default="production")
 
 
 #from django.conf import ENVIRONMENT_VARIABLE
@@ -34,15 +35,29 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
-    DEBUG = True
-else:
     DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
+#ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
+#CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
 
-#twilio sms configuration
+if ENVIRONMENT == 'production':
+    ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
+    CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
+else:
+    ALLOWED_HOSTS = ['*']
+
+
+# check if running locally (development)
+hostname = socket.gethostname()
+if socket.gethostname == 'DESKTOP-OUTTB9G':
+    print('\n development environment')
+else:
+    print('\nproduction environment')
+    print(f'hostname: {hostname}')
+
 
 
 LOGIN_URL = '/login/'
@@ -201,16 +216,20 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if ENVIRONMENT == 'development':
+if ENVIRONMENT == 'production':
+    
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    print('\nthis is development environment')
+else:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = "smtp.gmail.com"
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
     EMAIL_HOST_USER = env('EMAIL_ADDRESS')
     EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
-    DEFAULT_FROM_EMAIL = 'NCA portal'
-else:
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    DEFAULT_FROM_EMAIL = 'NCA portal <sheriffsakara41@gmial.com>'
+
+    print('\nthis is production environment')
 #SMTP CONFIGURATION
 '''
 EMAIL_HOST = "smtp.google.com"
