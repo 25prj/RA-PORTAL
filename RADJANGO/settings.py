@@ -43,7 +43,7 @@ else:
 
 #CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
 
-if ENVIRONMENT == 'production':
+if ENVIRONMENT == 'development':
     ALLOWED_HOSTS = ['ra-portal-9.onrender.com']
     CSRF_TRUSTED_ORIGINS = ['https://ra-portal-9.onrender.com']
 else:
