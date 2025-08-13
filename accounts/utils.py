@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.contrib.auth.signals import user_logged_in
 from django.dispatch import receiver
+from django.conf import settings
 
 '''
 email_list = []
@@ -32,13 +33,13 @@ def send_otp(request, username):
     Your OTP for login is: {otp}
     This code is valid for 1 minute.
 
-    If you didn't request this, please ignore this email.
-'''
+    \tIf you didn't request this, please ignore this email.
+    '''
 
     send_mail(
         subject=subject,
         message=message,
-        from_email='admin@django.com',
+        from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[user.email],
         fail_silently=False,
         )
